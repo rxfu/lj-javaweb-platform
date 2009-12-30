@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="sys_nologin" namespace="/sys" extends="struts-default">
+		<action name="loginPage">
+			<result name="success">/sys/login.jsp
+			</result>
+		</action>
+		<action name="login" class="com.pl.sys.SysAction" method="login">
+			<result name="success">/sys/indexframe.jsp
+			</result>
+		</action>
+	</package>
+	<package name="sys_login" namespace="/sys" extends="struts-default">
+		<interceptors>
+			<interceptor name="authInterceptor" class="com.pl.util.AuthInterceptor"></interceptor>
+			<interceptor-stack name="authStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="authInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="authStack" />
+		<!-- 登录 -->
+		<global-results>
+			<result name="gotoLogin">/sys/gotoLogin.jsp
+			</result>
+		</global-results>
+		<!-- frame -->
+		<action name="topframe" class="com.pl.sys.SysAction" method="topframe">
+			<result name="success">/sys/topframe.jsp</result>
+		</action>
+		<action name="leftframe" class="com.pl.sys.SysAction" method="leftframe">
+			<result name="success">/sys/leftframe.jsp</result>
+		</action>
+		<action name="mainframe" class="com.pl.sys.SysAction" method="mainframe">
+			<result name="success">/sys/mainframe.jsp</result>
+		</action>
+		<!-- 用户组 -->
+		<action name="searchgroup" class="com.pl.sys.GroupAction"
+			method="searchGroup">
+			<result name="success">/sys/grouplist.jsp</result>
+		</action>
+		<action name="searchgroup" class="com.pl.sys.GroupAction"
+			method="editGroupAuth">
+			<result name="success">/sys/editgroupauth.jsp
+			</result>
+		</action>
+		<!-- 用户 -->
+		<action name="searchuser" class="com.pl.sys.UserAction" method="searchUser">
+			<result name="success">/sys/userlist.jsp</result>
+		</action>
+	</package>
+</struts>
