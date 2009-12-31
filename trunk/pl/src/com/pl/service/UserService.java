@@ -3,10 +3,6 @@ package com.pl.service;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.servlet.http.HttpSession;
-
-import org.apache.struts2.ServletActionContext;
-
 import com.app.web.pagetag.Page;
 import com.pl.db.TsUserBean;
 import com.pl.db.TsUserDao;
@@ -47,7 +43,7 @@ public class UserService {
 	public boolean login(String userId,String password) throws SQLException, Exception {
 		TsUserDao tsUserDao = new TsUserDao();
 		MD5 md5 = new MD5();
-		HttpSession session = ServletActionContext.getRequest().getSession();
+//		HttpSession session = ServletActionContext.getRequest().getSession();
 		if(!tsUserDao.haveUserId(userId)){
 			throw new Exception("该用户不存在！");
 		}

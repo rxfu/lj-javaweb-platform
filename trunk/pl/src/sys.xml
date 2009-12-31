@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
+
 	<package name="sys_nologin" namespace="/sys" extends="struts-default">
+		<global-results>
+			<result name="error">/common/error.jsp</result>
+			<result name="gotoLogin">/sys/gotoLogin.jsp</result>
+		</global-results>
 		<action name="loginPage">
 			<result name="success">/sys/login.jsp
 			</result>
@@ -12,6 +17,7 @@
 		</action>
 	</package>
 	<package name="sys_login" namespace="/sys" extends="struts-default">
+
 		<interceptors>
 			<interceptor name="authInterceptor" class="com.pl.util.AuthInterceptor"></interceptor>
 			<interceptor-stack name="authStack">
@@ -20,10 +26,11 @@
 			</interceptor-stack>
 		</interceptors>
 		<default-interceptor-ref name="authStack" />
+		
 		<!-- 登录 -->
 		<global-results>
-			<result name="gotoLogin">/sys/gotoLogin.jsp
-			</result>
+			<result name="error">/common/error.jsp</result>
+			<result name="gotoLogin">/sys/gotoLogin.jsp</result>
 		</global-results>
 		<!-- frame -->
 		<action name="topframe" class="com.pl.sys.SysAction" method="topframe">
