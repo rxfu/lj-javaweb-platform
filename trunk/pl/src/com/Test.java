@@ -3,7 +3,7 @@ package com;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.pl.db.TsMenuBean;
+import com.pl.model.TsMenuBean;
 import com.pl.service.MenuService;
 
 public class Test {

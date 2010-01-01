@@ -3,8 +3,8 @@ package com.pl.service;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.pl.db.TsGroupBean;
 import com.pl.db.TsGroupDao;
+import com.pl.model.TsGroupBean;
 import com.pl.util.PLLog;
 
 /**

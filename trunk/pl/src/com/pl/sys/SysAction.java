@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.pl.db.TsMenuBean;
+import com.pl.model.TsMenuBean;
 import com.pl.service.MenuService;
 import com.pl.service.UserService;
 import com.pl.util.PLLog;

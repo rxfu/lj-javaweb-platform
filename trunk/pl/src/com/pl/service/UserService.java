@@ -4,8 +4,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.app.web.pagetag.Page;
-import com.pl.db.TsUserBean;
 import com.pl.db.TsUserDao;
+import com.pl.model.TsUserBean;
 import com.pl.util.MD5;
 
 /**

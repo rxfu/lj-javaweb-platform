@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.sql.rowset.CachedRowSet;
 
 import com.app.web.pagetag.Page;
+import com.pl.model.TsUserBean;
 import com.pl.sql.SqlManager;
 import com.pl.util.PLLog;
 import com.pl.util.StringTool;

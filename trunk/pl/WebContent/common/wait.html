@@ -1,10 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>请等待………………</title>
 </head>
-<body >
+<body  >
 <form name=loading>
 <p align=center><font color="#0066ff" size="2">正在进入，请稍等</font><font
 	color="#0066ff" size="2" face="Arial">...</font> <input type=text
@@ -21,16 +21,20 @@ count()　
 function count(){　 
 bar=bar+2　 
 amount =amount + line　 
-document.loading.chart.value=amount　 
-document.loading.percent.value=bar+"%"　 
+document.loading.chart.value=amount　  
 if (bar<99)　 
-{setTimeout("count()",10);}　 
-else　 
-{window.location = "/pl/sys/login.jsp";}　 
-}</script></p>
+{setTimeout("count()",100);}　
+else{
+bar=0　 
+line="||"　 
+amount="||"　 
+count();
+}
+
+}
+</script></p>
 </form>
-<p align="center">如果您的浏览器不支持跳转,<a style="text-decoration: none"
-	href="/pl/sys/login.jsp"><font color="#FF0000">请点这里</font></a>.</p>
+
 </body>
 
 </html>

@@ -5,6 +5,7 @@
 	<package name="sys_nologin" namespace="/sys" extends="struts-default">
 		<global-results>
 			<result name="error">/common/error.jsp</result>
+			<result name="wait">/common/wait.html</result>
 			<result name="gotoLogin">/sys/gotoLogin.jsp</result>
 		</global-results>
 		<action name="loginPage">
@@ -23,13 +24,19 @@
 			<interceptor-stack name="authStack">
 				<interceptor-ref name="defaultStack" />
 				<interceptor-ref name="authInterceptor" />
+				<interceptor-ref name="execAndWait">
+					<param name="excludeMethods">default</param>
+				</interceptor-ref>
 			</interceptor-stack>
 		</interceptors>
+
+
 		<default-interceptor-ref name="authStack" />
-		
+
 		<!-- 登录 -->
 		<global-results>
 			<result name="error">/common/error.jsp</result>
+			<result name="wait">/common/wait.html</result>
 			<result name="gotoLogin">/sys/gotoLogin.jsp</result>
 		</global-results>
 		<!-- frame -->

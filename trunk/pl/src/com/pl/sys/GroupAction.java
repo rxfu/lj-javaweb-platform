@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.pl.db.TsGroupBean;
+import com.pl.model.TsGroupBean;
 import com.pl.service.GroupService;
 import com.pl.util.PLLog;
 

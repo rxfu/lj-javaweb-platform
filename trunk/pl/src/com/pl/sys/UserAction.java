@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import com.app.web.pagetag.Page;
 import com.opensymphony.xwork2.ActionSupport;
-import com.pl.db.TsUserBean;
+import com.pl.model.TsUserBean;
 import com.pl.service.UserService;
 import com.pl.util.PLLog;
 

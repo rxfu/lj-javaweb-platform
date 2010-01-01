@@ -1,4 +1,4 @@
-package com.pl.db;
+package com.pl.model;
 
 import java.util.ArrayList;
 

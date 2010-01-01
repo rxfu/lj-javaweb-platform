@@ -1,4 +1,4 @@
-package com.pl.db;
+package com.pl.model;
 
 /**
  * 用户表
