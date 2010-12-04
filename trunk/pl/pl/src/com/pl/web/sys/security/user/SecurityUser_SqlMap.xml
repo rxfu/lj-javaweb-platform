@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="securityUser" >
+  <resultMap id="securityUserBean" class="com.pl.web.sys.security.user.SecurityUserBean" >
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="selectByUsername" resultMap="securityUserBean" parameterClass="String" >
+    select user_id, username, password
+    from ts_user
+    where username = #username:VARCHAR#
+  </select>
+  <select id="selectAuthoritiesByUserId" resultClass="String" parameterClass="String" >
+	SELECT
+	role_id
+	FROM
+	ts_user u,ts_group_role gr WHERE u.group_id = gr.group_id
+	AND
+	u.user_id =  #userId:VARCHAR#
+  </select>
+</sqlMap>
