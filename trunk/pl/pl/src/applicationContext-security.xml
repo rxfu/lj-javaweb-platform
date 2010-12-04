@@ -19,7 +19,7 @@
 
 		<ss:form-login login-page="/sys/user/user!preLogin.action"
 			authentication-failure-url="/sys/user/user!preLogin.action?error=true"
-			default-target-url="/" />
+			default-target-url="/index1.jsp" />
 		
 		<ss:session-management >
 			<ss:concurrency-control max-sessions="1" error-if-maximum-exceeded="true"/>
