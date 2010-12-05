@@ -7,6 +7,8 @@
 	default-autowire="byType" default-lazy-init="true">
 
 	<ss:http auto-config="true">
+		<ss:intercept-url pattern="/index.jsp" filters="none"/>
+		<ss:intercept-url pattern="/w/**" filters="none"/>
 		<ss:intercept-url pattern="/common/**" filters="none" />
 		<ss:intercept-url pattern="/css/**" filters="none" />
 		<ss:intercept-url pattern="/images/**" filters="none" />

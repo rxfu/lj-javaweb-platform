@@ -9,6 +9,7 @@
 <c:set var="ajaxInvoke" scope="request">ajaxPaginationInvoke</c:set>
 
 <link rel="stylesheet" type="text/css" href="${path}/css/cmxform.css"/>
+<link rel="stylesheet" type="text/css" href="${path}/css/default.css"/>
 <script type="text/javascript" src="${path}/js/jquery-1.4.2.min.js" /></script>
 <script type="text/javascript" src="${path}/js/jquery.metadata.js" /></script>
 <script type="text/javascript" src="${path}/js/jquery.validate.js" /></script>
