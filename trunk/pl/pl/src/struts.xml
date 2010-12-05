@@ -14,7 +14,13 @@
 	<constant name="struts.multipart.saveDir" value="d:\\temp"/>
 	<constant name="struts.i18n.encoding" value="UTF-8"/>
 	
+	
 	<include file="struts-default.xml" />
-	<package name="default" extends="struts-default">
+	<package name="pl-default" extends="struts-default">
+		<global-results>
+			<result name="abc">/index.jsp</result>
+		</global-results>
 	</package>
+	<constant name="struts.configuration.classpath.defaultParentPackage" value="pl-default" />
+
 </struts>
