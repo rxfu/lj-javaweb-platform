@@ -7,12 +7,17 @@
 	default-autowire="byType" default-lazy-init="true">
 
 	<ss:http auto-config="true">
-		<ss:intercept-url pattern="/index.jsp" filters="none"/>
-		<ss:intercept-url pattern="/w/**" filters="none"/>
+		
+		<!-- 不收security管理 -->
 		<ss:intercept-url pattern="/common/**" filters="none" />
+		<ss:intercept-url pattern="/include/**" filters="none" />
 		<ss:intercept-url pattern="/css/**" filters="none" />
-		<ss:intercept-url pattern="/images/**" filters="none" />
+		<ss:intercept-url pattern="/imags/**" filters="none" />
+		<ss:intercept-url pattern="/imags_up/**" filters="none" />
 		<ss:intercept-url pattern="/js/**" filters="none" />
+		<!-- 所有用户都可以使用 -->
+		<ss:intercept-url pattern="/index.jsp" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<ss:intercept-url pattern="/w/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<ss:intercept-url pattern="/sys/user/user!preLogin.action"
 			access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<ss:intercept-url pattern="/**" access="IS_AUTHENTICATED_FULLY" />
@@ -21,7 +26,7 @@
 
 		<ss:form-login login-page="/sys/user/user!preLogin.action"
 			authentication-failure-url="/sys/user/user!preLogin.action?error=true"
-			default-target-url="/index1.jsp" />
+			 />
 		
 		<ss:session-management >
 			<ss:concurrency-control max-sessions="1" error-if-maximum-exceeded="true"/>
@@ -46,8 +51,15 @@
 	-->
 	<ss:authentication-manager>
 		<ss:authentication-provider
-			user-service-ref="userDetailsService" />
+			user-service-ref="userDetailsService" >
+			<ss:password-encoder hash="md5">
+				<ss:salt-source user-property="username"/>
+			</ss:password-encoder>
+			</ss:authentication-provider>
 	</ss:authentication-manager>
  	
+ 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+ 		<property name="basename" value="classpath:security_messages_zh_CN"/>
+ 	</bean>
 
 </beans>

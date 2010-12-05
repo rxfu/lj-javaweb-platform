@@ -54,4 +54,7 @@
 	<bean id="userService" class="com.pl.web.sys.user.impl.UserServiceImpl" />
 	<bean id="securityUserDao" class="com.pl.web.sys.security.user.impl.SecurityUserDaoImpl"/>
 	<bean id="userDetailsService" class="com.pl.web.sys.security.user.impl.UserDetailsServiceImpl"/>
+	<bean id="regDao" class="com.pl.web.w.reg.impl.RegDaoImpl"/>
+	<bean id="basePasswordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
+	<bean id="regService" class="com.pl.web.w.reg.impl.RegServiceImpl"/>
 </beans>
