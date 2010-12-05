@@ -17,8 +17,14 @@ public class RegAction extends BaseAction
 {
 	private static final long serialVersionUID = 1L;
 	private TsUser tsUser;
+	private RegService regService;
 	
 	public String add() {
+		try {
+			regService.add(tsUser);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return "g-index";
 	}
 	///////////////////////////////////////////////////////
@@ -27,6 +33,12 @@ public class RegAction extends BaseAction
 	}
 	public void setTsUser(TsUser tsUser) {
 		this.tsUser = tsUser;
+	}
+	public RegService getRegService() {
+		return regService;
+	}
+	public void setRegService(RegService regService) {
+		this.regService = regService;
 	}
 	
 	

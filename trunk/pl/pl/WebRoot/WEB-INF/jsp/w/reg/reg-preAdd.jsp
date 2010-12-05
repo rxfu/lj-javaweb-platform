@@ -6,8 +6,8 @@
 		<%@include file="/common/taglibs.jsp"%>
 		<title>注册-个人用户</title>
 		<script type="text/javascript">
-		$(function() {
-			$("#form1").validate( {
+		$(function(){
+			$("#form1").validate({
 				errorLabelContainer : $("#error"),
 				rules : {
 					"tsUser.username" : {
