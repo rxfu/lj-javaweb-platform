@@ -7,18 +7,15 @@ import org.apache.struts2.json.annotations.JSON;
 import com.pl.common.base.BaseAction;
 
 @ParentPackage("json-default")
-@Result(type = "json", name = "test")
-public class UserAction extends BaseAction {
+@Result(name = "success",type = "json")
+public class JsonUserAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 	private String flag;
 	private String username;
-
-	public String test() throws Exception {
+	public String jsonUserExisted() throws Exception {
 		this.flag = username;
-
-		return "test";
+		return "success";
 	}
-
 	// //////////////////////////
 	@JSON(name = "flag")
 	public String getFlag() {

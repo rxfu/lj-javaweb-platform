@@ -60,7 +60,7 @@
 			 var params = {   
 					username:'abc'
 					};
-			var url = "${path}/w/reg/user!test.action"
+			var url = "${path}/w/reg/json-user!jsonUserExisted.action"
 			jQuery.post(url, params, callbackFun, 'json');
  
 		}
