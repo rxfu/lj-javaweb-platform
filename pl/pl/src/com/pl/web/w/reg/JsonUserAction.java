@@ -14,6 +14,7 @@ public class JsonUserAction extends BaseAction {
 	private String username;
 	public String jsonUserExisted() throws Exception {
 		this.flag = username;
+		System.out.println(flag);
 		return "success";
 	}
 	// //////////////////////////
