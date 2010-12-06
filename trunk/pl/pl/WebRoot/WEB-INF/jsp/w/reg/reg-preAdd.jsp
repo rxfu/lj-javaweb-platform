@@ -57,10 +57,15 @@
 		});
 		function abc()
 		{
-			 $.getJSON("${path}/w/reg/user!test.action",
-			  function(json){
-			  	alert(json.name);
-			  });   
+			 var params = {   
+					username:'abc'
+					};
+			var url = "${path}/w/reg/user!test.action"
+			jQuery.post(url, params, callbackFun, 'json');
+ 
+		}
+		function callbackFun(date){
+			alert(date.flag);
 		}
 
 		</script>
