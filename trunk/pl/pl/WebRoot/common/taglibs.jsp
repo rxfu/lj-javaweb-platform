@@ -19,4 +19,5 @@
 <script type="text/javascript" src="${path}/js/jquery.validate.js" /></script>
 <script type="text/javascript" src="${path}/js/cmxforms.js" /></script>
 <script type="text/javascript" src="${path}/js/aa.js"/></script>
+<script type="text/javascript" src="${path}/js/json2.js"/></script>
 
