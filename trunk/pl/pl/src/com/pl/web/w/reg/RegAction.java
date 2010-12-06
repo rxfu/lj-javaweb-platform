@@ -1,7 +1,6 @@
 package com.pl.web.w.reg;
 
 import org.apache.struts2.convention.annotation.Result;
-import org.apache.struts2.convention.annotation.Results;
 
 import com.pl.common.base.BaseAction;
 
@@ -10,9 +9,9 @@ import com.pl.common.base.BaseAction;
  * @author 熊庆春
  *
  */
-@Results({
-	 @Result(name="g-index", location = "/index.jsp")
-})
+
+@Result(name="g-index", location = "/index.jsp")
+
 public class RegAction extends BaseAction
 {
 	private static final long serialVersionUID = 1L;

@@ -52,20 +52,16 @@
 			});
 			
 			$("#checkUser").click( function() {
-				var url="${path}/w/reg/user!userExists.action";
-				
-				var params = {
-                        username:$("#form1_tsUser_username").val()             
-                       }; //通过id获得输入值
-
-				jQuery.post(url, params, callback(), 'json');
-				alert("haha"+$("#form1_tsUser_username").val());
-			 });
-
+					alert(1);
+			});
 		});
-			function callback(json){      
-				alert("111");
-			} 
+		function abc()
+		{
+			 $.getJSON("${path}/w/reg/user!test.action",
+			  function(json){
+			  	alert(json.name);
+			  });   
+		}
 
 		</script>
 	</head>
@@ -77,7 +73,7 @@
 						用户名：
 					</td>
 					<td>
-						<s:textfield name="tsUser.username" /><input type="button" id="checkUser" value="检查用户"> 
+						<s:textfield name="tsUser.username" /><input type="button" id="checkUser1" onclick="abc()" value="检查用户"> 
 				  	</td>
 				</tr>
 				<tr>
