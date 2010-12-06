@@ -3,6 +3,8 @@ package com.pl.common.base;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
 import com.pl.common.pager.Pager;
@@ -16,9 +18,10 @@ import com.pl.common.pager.Pager;
 public abstract class BaseDao extends SqlMapClientDaoSupport {
 	private static final long serialVersionUID = 1L;
 	protected static String nameSpace;
-
+	protected static  Log log;
 	public BaseDao() {
 		nameSpace = this.getClass().getSimpleName().replace("DaoImpl", "");
+		log   =  LogFactory.getLog(this.getClass().getName()); 
 	}
 
 	/**

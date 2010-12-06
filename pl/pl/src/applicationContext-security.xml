@@ -17,11 +17,13 @@
 		<ss:intercept-url pattern="/js/**" filters="none" />
 		<!-- 所有用户都可以使用 -->
 		<ss:intercept-url pattern="/index.jsp" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<ss:intercept-url pattern="/sys/user/user!preLogin.action" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<ss:intercept-url pattern="/w/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-		<ss:intercept-url pattern="/sys/user/user!preLogin.action"
-			access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<ss:intercept-url pattern="/**" access="IS_AUTHENTICATED_FULLY" />
+		
+		<ss:intercept-url pattern="/b/**" access="ROLE_ADMIN,ROLE_PERSONAL"/>
+		<ss:intercept-url pattern="/a/**" access="ROLE_ADMIN"/>
 
+		<ss:intercept-url pattern="/**" access="IS_AUTHENTICATED_FULLY" />
 
 
 		<ss:form-login login-page="/sys/user/user!preLogin.action"
@@ -29,7 +31,7 @@
 			 />
 		
 		<ss:session-management >
-			<ss:concurrency-control max-sessions="1" error-if-maximum-exceeded="true"/>
+			<ss:concurrency-control max-sessions="1" error-if-maximum-exceeded="true" 	/>
 		</ss:session-management>
 	</ss:http>
 	<!--
@@ -57,7 +59,6 @@
 			</ss:password-encoder>
 			</ss:authentication-provider>
 	</ss:authentication-manager>
- 	
  	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
  		<property name="basename" value="classpath:security_messages_zh_CN"/>
  	</bean>
