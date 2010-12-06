@@ -24,6 +24,7 @@ public class RegAction extends BaseAction
 			regService.add(tsUser);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
+			log.error("用户注册失败！");
 		}
 		return "g-index";
 	}

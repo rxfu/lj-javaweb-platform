@@ -1,6 +1,10 @@
 package com.pl.common.base;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
+
+import bsh.This;
 
 import com.opensymphony.xwork2.ActionSupport;
 /**
@@ -11,6 +15,11 @@ import com.opensymphony.xwork2.ActionSupport;
 public abstract class BaseAction extends ActionSupport
 {
 	private static final long serialVersionUID = 1L;
+	protected static  Log log;
+	public BaseAction(){
+		log   =  LogFactory.getLog(this.getClass().getName()); 
+	}
+	
 	/**
 	 * 查询列表前的准备
 	 */
