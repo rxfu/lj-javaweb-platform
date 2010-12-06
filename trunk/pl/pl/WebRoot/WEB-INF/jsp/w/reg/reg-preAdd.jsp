@@ -58,7 +58,7 @@
 		function abc()
 		{
 			 var params = {   
-					username:'abc'
+					username:$("input[name='tsUser.username']").val()
 					};
 			var url = "${path}/w/reg/json-user!jsonUserExisted.action"
 			jQuery.post(url, params, callbackFun, 'json');
