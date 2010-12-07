@@ -1,10 +1,13 @@
 package com.pl.common.base;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
-
-import bsh.This;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.opensymphony.xwork2.ActionSupport;
 /**
@@ -108,12 +111,15 @@ public abstract class BaseAction extends ActionSupport
 	public String deleteSelect(){
 		return DELETESELECT;
 	}
+	protected HttpServletRequest getRequest() {
+		return ServletActionContext.getRequest();
+	}
 	/**
 	 * 从Request获取值
 	 * @param val Request取值key
 	 * @return
 	 */
-	public Object getRequestVal(String val){
+	protected Object getRequestVal(String val){
 		return ServletActionContext.getRequest().getAttribute(val);
 	}
 	/**
@@ -121,15 +127,18 @@ public abstract class BaseAction extends ActionSupport
 	 * @param val key值
 	 * @param object 要保存的值
 	 */
-	public void setRequestVal(String val,Object object){
+	protected void setRequestVal(String val,Object object){
 		ServletActionContext.getRequest().setAttribute(val, object);
+	}
+	protected HttpSession getSession() {
+		return ServletActionContext.getRequest().getSession();
 	}
 	/**
 	 * 从Session获取值
 	 * @param val Session取值key
 	 * @return
 	 */
-	public Object getSessionVal(String val){
+	protected Object getSessionVal(String val){
 		String userId = (String)ServletActionContext.getRequest().getSession().getAttribute("userId");
 		return ServletActionContext.getRequest().getSession().getAttribute(userId+val);
 	}
@@ -138,8 +147,18 @@ public abstract class BaseAction extends ActionSupport
 	 * @param val key值
 	 * @param object 要保存的值
 	 */
-	public void setSessionVal(String val,Object object){
+	protected void setSessionVal(String val,Object object){
 		String userId = (String)ServletActionContext.getRequest().getSession().getAttribute("userId");
 		ServletActionContext.getRequest().getSession().setAttribute(userId+val,object);
 	}
+	/**
+	 * 从Spring中获取bean
+	 * @param beanId beanId
+	 * @return 返回bean对象
+	 */
+	protected Object getSpringBean(String beanId){
+		WebApplicationContext ctx  = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getSession().getServletContext());
+		return ctx.getBean(beanId);
+	}
+	
 }

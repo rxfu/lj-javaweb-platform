@@ -1,5 +1,6 @@
 package com.pl.web.w.reg.impl;
 
+import org.apache.commons.lang.xwork.StringUtils;
 import org.springframework.security.authentication.encoding.BasePasswordEncoder;
 
 import com.pl.web.w.reg.RegDao;
@@ -17,6 +18,13 @@ public class RegServiceImpl  implements RegService
 		tsUser.setGroupId("ug_personal");
 		regDao.insert(tsUser);	
 	}
+	public String isExisted(String username) {
+		if(StringUtils.isEmpty(regDao.isExisted(username))){
+			return "notExisted";
+		}else{
+			return "existed";
+		}
+	}
 	/////////////////////////////////////////////////////////////
 	public RegDao getRegDao() {
 		return regDao;
@@ -30,6 +38,8 @@ public class RegServiceImpl  implements RegService
 	public void setBasePasswordEncoder(BasePasswordEncoder basePasswordEncoder) {
 		this.basePasswordEncoder = basePasswordEncoder;
 	}
+
+
 	
 	
 

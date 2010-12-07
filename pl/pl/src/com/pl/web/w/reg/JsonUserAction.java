@@ -13,7 +13,9 @@ public class JsonUserAction extends BaseAction {
 	private String flag;
 	private String username;
 	public String jsonUserExisted() throws Exception {
-		this.flag = username;
+		RegService regService = (RegService) this.getSpringBean("regService");
+		
+		this.flag = regService.isExisted(username);
 		System.out.println(flag);
 		return "success";
 	}
