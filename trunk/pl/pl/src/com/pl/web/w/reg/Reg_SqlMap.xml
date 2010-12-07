@@ -14,4 +14,8 @@
     values (#userId:VARCHAR#, #username:VARCHAR#, #password:VARCHAR#, #email:VARCHAR#,
       #groupId:VARCHAR#)
   </insert>
+  <select id="checkByUsername" parameterClass="String" resultClass="String">
+  	select username
+    from ts_user where username = #username:VARCHAR#
+  </select>
 </sqlMap>

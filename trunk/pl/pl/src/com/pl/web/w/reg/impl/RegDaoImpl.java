@@ -12,4 +12,8 @@ public class RegDaoImpl extends BaseDao implements RegDao {
 		return (TsUser) super.insert(tsUser);
 	}
 
+	public String isExisted(String username) {
+		return (String) super.selectOne("Reg.checkByUsername", username);
+	}
+
 }
