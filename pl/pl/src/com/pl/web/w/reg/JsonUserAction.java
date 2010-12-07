@@ -2,10 +2,12 @@ package com.pl.web.w.reg;
 
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
-import org.apache.struts2.json.annotations.JSON;
 
 import com.pl.common.base.BaseAction;
-
+/**
+ * 注释jsonAction中不能出现非String的成员变量，否则json回调函数无法执行
+ * @author 熊庆春
+ */
 @ParentPackage("json-default")
 @Result(name = "success",type = "json")
 public class JsonUserAction extends BaseAction {
@@ -14,13 +16,10 @@ public class JsonUserAction extends BaseAction {
 	private String username;
 	public String jsonUserExisted() throws Exception {
 		RegService regService = (RegService) this.getSpringBean("regService");
-		
 		this.flag = regService.isExisted(username);
-		System.out.println(flag);
 		return "success";
 	}
 	// //////////////////////////
-	@JSON(name = "flag")
 	public String getFlag() {
 		return flag;
 	}
