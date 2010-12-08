@@ -8,7 +8,7 @@
 		<script type="text/javascript">
 		$(function(){
 			$("#form1").validate({
-				errorLabelContainer : $("#error"),
+				errorLabelContainer : $("#errorShow"),
 				rules : {
 					"tsUser.username" : {
 						required : true,
@@ -50,10 +50,7 @@
 					}
 				}
 			});
-			
-			$("#checkUser").click( function() {
-					alert(1);
-			});
+
 			
 			$("input[name='tsUser.username']").change(function(){
 				var params = {   
@@ -85,7 +82,7 @@
 					</td>
 					<td>
 						<s:textfield name="tsUser.username"/>
-						<div id="usernameShow"></div>
+						<div id="usernameShow" style="color: red"><s:actionerror theme="simple"/></div>
 				  	</td>
 				</tr>
 				<tr>
@@ -114,7 +111,7 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<div id="error" style="background: green"></div>
+						<div id="errorShow" style="background: green"></div>
 						<s:submit label="提交" />
 					</td>
 				</tr>
