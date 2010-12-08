@@ -5,7 +5,7 @@ import org.apache.struts2.convention.annotation.Result;
 
 import com.pl.common.base.BaseAction;
 /**
- * 注释jsonAction中不能出现非String的成员变量，否则json回调函数无法执行
+ * 注释jsonAction中不能出现非String的成员变量的get方法，否则json回调函数无法执行(原因为非基本数据类型的成员无法生产json的字符串)
  * @author 熊庆春
  */
 @ParentPackage("json-default")
