@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ page import="org.springframework.security.web.authentication.AbstractProcessingFilter"%>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -55,13 +54,7 @@
 					<td>
 						<div id="error" style="background: green"></div>
 						<div style="background: green">
-							<%
-								if (session.getAttribute(AbstractProcessingFilter.SPRING_SECURITY_LAST_EXCEPTION_KEY) != null) {
-							%>
-									<font color="red">${sessionScope['SPRING_SECURITY_LAST_EXCEPTION'].message}</font>
-							<%
-								}
-							%>
+							<font color="red">${sessionScope['SPRING_SECURITY_LAST_EXCEPTION'].message}</font>
 						</div>
 						
 						<s:submit value="登录" />
