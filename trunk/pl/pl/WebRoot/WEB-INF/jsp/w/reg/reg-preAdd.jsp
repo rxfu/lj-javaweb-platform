@@ -112,7 +112,7 @@
 				<tr>
 					<td colspan="2">
 						<div id="errorShow" style="background: green"></div>
-						<s:submit label="提交" />
+						<s:submit value="提交" />
 					</td>
 				</tr>
 			</s:form>
