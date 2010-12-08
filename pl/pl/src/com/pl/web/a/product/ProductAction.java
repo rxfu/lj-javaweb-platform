@@ -17,7 +17,7 @@ public class ProductAction extends BaseAction
 	private ProductService productService;
 	private Pager pager;
 	private TpProduct tpProduct;
-
+	
 	@Override
 	public String add() {
 		return super.add();
@@ -28,8 +28,10 @@ public class ProductAction extends BaseAction
 		if(null == pager){
 			pager = new Pager();
 		}
-		List<TpProduct> reList = productService.list(tpProduct,pager);
-		setRequestVal("reList",reList);
+		if(!isFirst){
+			List<TpProduct> reList = productService.list(tpProduct,pager);
+			setRequestVal("reList",reList);
+		}
 		return super.list();
 	}
 	////////////////////////////////////////////////////////
@@ -53,4 +55,7 @@ public class ProductAction extends BaseAction
 	public void setPager(Pager pager) {
 		this.pager = pager;
 	}
+
+
+
 }

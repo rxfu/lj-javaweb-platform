@@ -161,4 +161,10 @@ public abstract class BaseAction extends ActionSupport
 		return ctx.getBean(beanId);
 	}
 	
+	protected boolean isFirst;
+	public void setIsFirst(String isFirst) {
+		if("1".equals(isFirst)){
+			this.isFirst = true;
+		}
+	}
 }
