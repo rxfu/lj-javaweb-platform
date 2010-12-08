@@ -14,8 +14,9 @@ public class JsonUserAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 	private String flag;
 	private String username;
+	private RegService regService;
 	public String jsonUserExisted() throws Exception {
-		RegService regService = (RegService) this.getSpringBean("regService");
+//		RegService regService = (RegService) this.getSpringBean("regService");
 		this.flag = regService.isExisted(username);
 		return "success";
 	}
@@ -34,6 +35,9 @@ public class JsonUserAction extends BaseAction {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public void setRegService(RegService regService) {
+		this.regService = regService;
 	}
 
 }

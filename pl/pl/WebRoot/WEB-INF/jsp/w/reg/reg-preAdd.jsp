@@ -54,19 +54,25 @@
 			$("#checkUser").click( function() {
 					alert(1);
 			});
-		});
-		function abc()
-		{
-			 var params = {   
+			
+			$("input[name='tsUser.username']").change(function(){
+				var params = {   
 					username:$("input[name='tsUser.username']").val()
 					};
-			var url = "${path}/w/reg/json-user!jsonUserExisted.action"
-			jQuery.post(url, params, callbackFun, 'json');
- 
-		}
-		function callbackFun(date){
-			alert(date.flag);
-		}
+				var url = "${path}/w/reg/json-user!jsonUserExisted.action"
+				jQuery.post(url, params, callbackFun, 'json');
+			});
+			
+			function callbackFun(date){
+				if(date.flag == 'notExisted'){
+					$('#usernameShow').html("<font color='red'>用户已经存在！</font>");
+				}else if(date.flag == 'existed'){
+					$('#usernameShow').html("<font color='green'>用户可用！</font>");
+				}
+			}
+		});
+		
+
 
 		</script>
 	</head>
@@ -78,7 +84,8 @@
 						用户名：
 					</td>
 					<td>
-						<s:textfield name="tsUser.username" /><input type="button" id="checkUser1" onclick="abc()" value="检查用户"> 
+						<s:textfield name="tsUser.username"/>
+						<div id="usernameShow"></div>
 				  	</td>
 				</tr>
 				<tr>
