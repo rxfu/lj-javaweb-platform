@@ -3,6 +3,7 @@ package com.pl.web.w.reg;
 import org.apache.struts2.convention.annotation.Result;
 
 import com.pl.common.base.BaseAction;
+import com.pl.exception.PlException;
 
 /**
  * 用户注册
@@ -21,9 +22,9 @@ public class RegAction extends BaseAction
 	public String add() {
 		try {
 			regService.add(tsUser);
-		} catch (InterruptedException e) {
+		} catch (PlException e) {
 			e.printStackTrace();
-			log.error("用户注册失败！");
+			log.error("用户注册失败："+e.getMessage());
 		}
 		return "g-index";
 	}
