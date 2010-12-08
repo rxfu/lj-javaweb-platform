@@ -25,6 +25,8 @@ public class RegAction extends BaseAction
 		} catch (PlException e) {
 			e.printStackTrace();
 			log.error("用户注册失败："+e.getMessage());
+			this.addActionError("用户注册失败："+e.getMessage());
+			return PREADD;
 		}
 		return "g-index";
 	}
