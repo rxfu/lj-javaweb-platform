@@ -17,7 +17,6 @@
 		<ss:intercept-url pattern="/js/**" filters="none" />
 		<!-- 所有用户都可以使用 -->
 		<ss:intercept-url pattern="/index.jsp" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-		<ss:intercept-url pattern="/sys/user/user!preLogin.action" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<ss:intercept-url pattern="/w/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		
 		<ss:intercept-url pattern="/b/**" access="ROLE_ADMIN,ROLE_PERSONAL"/>
@@ -26,8 +25,8 @@
 		<ss:intercept-url pattern="/**" access="IS_AUTHENTICATED_FULLY" />
 
 
-		<ss:form-login login-page="/sys/user/user!preLogin.action"
-			authentication-failure-url="/sys/user/user!preLogin.action?error=true"
+		<ss:form-login login-page="/w/reg/reg!preLogin.action"
+			authentication-failure-url="/w/reg/reg!preLogin.action?error=true"
 			 />
 		
 		<ss:session-management >
