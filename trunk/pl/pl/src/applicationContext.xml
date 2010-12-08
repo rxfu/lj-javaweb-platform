@@ -50,8 +50,6 @@
 			<ref bean="sqlMapClient" />
 		</constructor-arg>
 	</bean>
-	<bean id="userDao" class="com.pl.web.sys.user.impl.UserDaoImpl" />
-	<bean id="userService" class="com.pl.web.sys.user.impl.UserServiceImpl" />
 	<bean id="securityUserDao" class="com.pl.web.sys.security.user.impl.SecurityUserDaoImpl"/>
 	<bean id="userDetailsService" class="com.pl.web.sys.security.user.impl.UserDetailsServiceImpl"/>
 	<bean id="regDao" class="com.pl.web.w.reg.impl.RegDaoImpl"/>
