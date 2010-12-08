@@ -19,6 +19,9 @@ public class RegAction extends BaseAction
 	private TsUser tsUser;
 	private RegService regService;
 	
+	public String preLogin(){
+		return "preLogin";
+	}
 	public String add() {
 		try {
 			regService.add(tsUser);
