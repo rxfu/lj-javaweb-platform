@@ -11,6 +11,9 @@
 		<aop:pointcut expression="execution(* com.pl.web..*Service.*(..))"
 			id="ibatisAop" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="ibatisAop" />
+		<!-- 获取方法执行时间 -->
+		<aop:advisor id="serviceMethodTimeLogAop" advice-ref="methodTimeLog" pointcut="execution(* com.pl.web..*Service.*(..))"/>
+		<aop:advisor id="daoMethodTimeLogAop" advice-ref="methodTimeLog" pointcut="execution(* com.pl.web..*Dao.*(..))"/>
 	</aop:config>
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
@@ -50,6 +53,7 @@
 			<ref bean="sqlMapClient" />
 		</constructor-arg>
 	</bean>
+	<bean id="methodTimeLog" class="com.pl.aop.MethodTimeLog"/>    
 	<bean id="securityUserDao" class="com.pl.web.sys.security.user.impl.SecurityUserDaoImpl"/>
 	<bean id="userDetailsService" class="com.pl.web.sys.security.user.impl.UserDetailsServiceImpl"/>
 	<bean id="regDao" class="com.pl.web.w.reg.impl.RegDaoImpl"/>
