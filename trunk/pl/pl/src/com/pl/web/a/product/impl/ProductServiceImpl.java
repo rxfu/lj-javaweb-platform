@@ -15,7 +15,7 @@ public class ProductServiceImpl extends BaseService implements ProductService {
 	private ProductDao productDao;
 
 	public void add(TpProduct tpProduct) throws PlException {
-		productDao.add(tpProduct);
+		productDao.insert(tpProduct);
 	}
 
 	public List<TpProduct> list(TpProduct tpProduct, Pager pager) {

@@ -14,9 +14,8 @@ import com.pl.exception.PlException;
 
 public interface ProductDao
 {
-	public void add(TpProduct tpProduct) throws PlException ;
 	public List<TpProduct> selectPager(TpProduct tpProduct, Pager pager);
-	public TpProduct insert(TpProduct tpProduct);
+	public TpProduct insert(TpProduct tpProduct) throws PlException ;
 	public int update(TpProduct tpProduct) throws SQLException;
 	public TpProduct selectOneById(String productId);
 	public void deleteById(String productId) throws SQLException;

@@ -45,10 +45,6 @@
       <url-pattern>/*</url-pattern>
     </filter-mapping>
 	<filter-mapping>
-	     <filter-name>AjaxAnywhere</filter-name>
-	     <url-pattern>*.jsp</url-pattern>
-	</filter-mapping>
-	<filter-mapping>
         <filter-name>AjaxAnywhere</filter-name>
         <url-pattern>*.action</url-pattern>
     </filter-mapping>

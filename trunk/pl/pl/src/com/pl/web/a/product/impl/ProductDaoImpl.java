@@ -11,31 +11,26 @@ import com.pl.web.a.product.ProductDao;
 import com.pl.web.a.product.TpProduct;
 
 public class ProductDaoImpl extends BaseDao implements ProductDao {
-
-	public void add(TpProduct tpProduct) throws PlException {
+	public TpProduct insert(TpProduct tpProduct) throws PlException {
 		tpProduct.setProductId(IDFactory.getId());
-		super.insert(tpProduct);
+		return (TpProduct) super.insert("Product.insert",tpProduct);
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<TpProduct> selectPager(TpProduct tpProduct, Pager pager) {
-		return super.selectPager(tpProduct, pager);
-	}
-
-	public TpProduct insert(TpProduct tpProduct) {
-		return (TpProduct) super.insert(tpProduct);
+		return (List<TpProduct>) super.selectPager("Product.selectPager",tpProduct, pager);
 	}
 
 	public int update(TpProduct tpProduct) throws SQLException {
-		return super.update(tpProduct);
+		return super.update("Product.update",tpProduct);
 	}
 
 	public TpProduct selectOneById(String productId) {
-		return (TpProduct) super.selectOneById(productId);
+		return (TpProduct) super.selectOne("Product.selectById",productId);
 	}
 
 	public void deleteById(String productId) throws SQLException {
-		super.deleteById(productId);
+		super.deleteById("Product.deleteById",productId);
 	}
 
 	

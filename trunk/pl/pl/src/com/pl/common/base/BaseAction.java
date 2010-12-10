@@ -3,8 +3,6 @@ package com.pl.common.base;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -18,11 +16,6 @@ import com.opensymphony.xwork2.ActionSupport;
 public abstract class BaseAction extends ActionSupport
 {
 	private static final long serialVersionUID = 1L;
-	protected static  Log log;
-	public BaseAction(){
-		log   =  LogFactory.getLog(this.getClass().getName()); 
-	}
-	
 	/**
 	 * 查询列表前的准备
 	 */
@@ -185,10 +178,18 @@ public abstract class BaseAction extends ActionSupport
 		return ctx.getBean(beanId);
 	}
 	
-	protected boolean isFirst;
-	public void setIsFirst(String isFirst) {
-		if("1".equals(isFirst)){
-			this.isFirst = true;
+	protected String firstFlag;
+	public String getFirstFlag() {
+		return firstFlag;
+	}
+	public void setFirstFlag(String firstFlag) {
+		this.firstFlag = firstFlag;
+	}
+	public boolean isFirst() {
+		if("1".equals(firstFlag)){
+			return true;
+		}else{
+			return false;
 		}
 	}
 	protected String saveFlag;

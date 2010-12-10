@@ -3,8 +3,6 @@ package com.pl.common.base;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
 import com.pl.common.pager.Pager;
@@ -17,25 +15,7 @@ import com.pl.common.pager.Pager;
  */
 public abstract class BaseDao extends SqlMapClientDaoSupport {
 	private static final long serialVersionUID = 1L;
-	protected static String nameSpace;
-	protected static  Log log;
-	public BaseDao() {
-		nameSpace = this.getClass().getSimpleName().replace("DaoImpl", "");
-		log   =  LogFactory.getLog(this.getClass().getName()); 
-	}
 
-	/**
-	 * 查询list
-	 * 
-	 * @param obj
-	 *            ibatis参数，可以是String 也可以是实体类
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public List selectList(Object obj) {
-		return this.getSqlMapClientTemplate().queryForList(
-				nameSpace + ".selectList", obj);
-	}
 	/**
 	 * 查询列表
 	 * @param statementName
@@ -46,14 +26,8 @@ public abstract class BaseDao extends SqlMapClientDaoSupport {
 		return this.getSqlMapClientTemplate().queryForList(statementName, obj);
 	}
 
-	@SuppressWarnings("unchecked")
-	public List selectPager(Object obj, Pager pager) {
-		return selectPager(nameSpace + ".selectPager", obj, pager);
-	}
-
-	@SuppressWarnings("unchecked")
-	public List selectPager(String statementName, Object obj, Pager pager) {
-		List list = getSqlMapClientTemplate().queryForList(statementName, obj,pager.getOffset(), pager.getMaxPageItems());
+	public List<?> selectPager(String statementName, Object obj, Pager pager) {
+		List<?> list = getSqlMapClientTemplate().queryForList(statementName, obj,pager.getOffset(), pager.getMaxPageItems());
 		//如果获得的结果集和页最大记录数不相同，这表示是最后一页。
 		//如果也最大记录数不为9999，表示没有计算过总记录数。
 		//结果：需要计算总记录数
@@ -72,17 +46,6 @@ public abstract class BaseDao extends SqlMapClientDaoSupport {
 		}
 		return list;
 	}
-
-	/**
-	 * 查询obj
-	 * 
-	 * @param obj ibatis参数，可以是String 也可以是实体类
-	 * @return
-	 */
-	public Object selectOneById(Object obj) {
-		return this.getSqlMapClientTemplate().queryForObject(
-				nameSpace + ".selectOneById", obj);
-	}
 	/**
 	 * 单个查询
 	 * @param statementName ibatis SQLId
@@ -100,9 +63,9 @@ public abstract class BaseDao extends SqlMapClientDaoSupport {
 	 *            ibatis参数 实体类
 	 * @return
 	 */
-	public Object insert(Object obj) {
+	public Object insert(String statementName,Object obj) {
 		return this.getSqlMapClientTemplate()
-				.insert(nameSpace + ".insert", obj);
+				.insert(obj.getClass() + ".insert", obj);
 	}
 
 	/**
@@ -113,9 +76,9 @@ public abstract class BaseDao extends SqlMapClientDaoSupport {
 	 * @throws SQLException
 	 *             如果删除数据熟练不是1，则抛出异常SQLException("通过Id删除数据未成功")
 	 */
-	public void deleteById(Object obj) throws SQLException {
+	public void deleteById(String statementName,Object obj) throws SQLException {
 		int flag = this.getSqlMapClientTemplate().delete(
-				nameSpace + ".deleteById", obj);
+				statementName, obj);
 		if (1 != flag) {
 			throw new SQLException("通过Id删除数据未成功");
 		}
@@ -129,9 +92,9 @@ public abstract class BaseDao extends SqlMapClientDaoSupport {
 	 * @return 删除数据量
 	 * @throws SQLException 
 	 */
-	public int delete(Object obj) throws SQLException {
+	public int delete(String statementName,Object obj) throws SQLException {
 		int flag = this.getSqlMapClientTemplate()
-				.delete(nameSpace + ".delete", obj);
+				.delete(statementName, obj);
 		if (1 < flag) {
 			throw new SQLException("删除了0条数据");
 		}
@@ -146,9 +109,9 @@ public abstract class BaseDao extends SqlMapClientDaoSupport {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public int update(Object obj) throws SQLException {
+	public int update(String statementName,Object obj) throws SQLException {
 		int flag = this.getSqlMapClientTemplate()
-				.update(nameSpace + ".update", obj);
+				.update(statementName, obj);
 		if (1 < flag) {
 			throw new SQLException("未成功更新任何数据");
 		}
