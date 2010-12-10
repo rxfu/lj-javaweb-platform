@@ -19,4 +19,5 @@ public interface ProductDao
 	public TpProduct insert(TpProduct tpProduct);
 	public int update(TpProduct tpProduct) throws SQLException;
 	public TpProduct selectOneById(String productId);
+	public void deleteById(String productId) throws SQLException;
 }

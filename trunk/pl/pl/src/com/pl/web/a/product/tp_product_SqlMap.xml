@@ -22,37 +22,57 @@
 			jdbcType="LONGVARCHAR" />
 	</resultMap>
 	<insert id="insert" parameterClass="com.pl.web.a.product.TpProduct">
-		insert into tp_product (product_id, product_name_simple, product_name,
+		insert into tp_product
+		(product_id, product_name_simple, product_name,
 		imagFileName, unit,
-		unit_weight, price_cost, price_sell_p, price_sell_e, price_market, inventory,
+		unit_weight, price_cost, price_sell_p, price_sell_e, price_market,
+		inventory,
 		brand,
 		product_introduction)
-		values (#productId:VARCHAR#, #productNameSimple:VARCHAR#,
+		values (#productId:VARCHAR#,
+		#productNameSimple:VARCHAR#,
 		#productName:VARCHAR#,
-		#imagfilename:VARCHAR#, #unit:VARCHAR#, #unitWeight:REAL#, #priceCost:REAL#,
-		#priceSellP:REAL#, #priceSellE:REAL#, #priceMarket:REAL#,
+		#imagfilename:VARCHAR#, #unit:VARCHAR#, #unitWeight:REAL#,
+		#priceCost:REAL#,
+		#priceSellP:REAL#, #priceSellE:REAL#,
+		#priceMarket:REAL#,
 		#inventory:INTEGER#,
-		#brand:VARCHAR#, #productIntroduction:LONGVARCHAR#)
+		#brand:VARCHAR#,
+		#productIntroduction:LONGVARCHAR#)
   </insert>
 	<update id="update" parameterClass="com.pl.web.a.product.TpProduct">
 		update tp_product
-		set product_name_simple = #productNameSimple:VARCHAR#,
-		product_name = #productName:VARCHAR#,
+		set
+		product_name_simple = #productNameSimple:VARCHAR#,
+		product_name =
+		#productName:VARCHAR#,
 		imagFileName = #imagfilename:VARCHAR#,
-		unit = #unit:VARCHAR#,
+		unit =
+		#unit:VARCHAR#,
 		unit_weight = #unitWeight:REAL#,
-		price_cost = #priceCost:REAL#,
+		price_cost =
+		#priceCost:REAL#,
 		price_sell_p = #priceSellP:REAL#,
-		price_sell_e = #priceSellE:REAL#,
+		price_sell_e =
+		#priceSellE:REAL#,
 		price_market = #priceMarket:REAL#,
-		inventory = #inventory:INTEGER#,
+		inventory =
+		#inventory:INTEGER#,
 		brand = #brand:VARCHAR#
-		where product_id = #productId:VARCHAR#
+		where product_id =
+		#productId:VARCHAR#
   </update>
-	<select id="selectOneById" resultMap="ProductLong" parameterClass="String">
-		select product_id, product_name_simple, product_name, imagFileName,
+	<delete id="deleteById" parameterClass="String">
+		delete from tp_product
+		where product_id = #productId:VARCHAR#
+	</delete>
+	<select id="selectOneById" resultMap="ProductLong"
+		parameterClass="String">
+		select product_id, product_name_simple, product_name,
+		imagFileName,
 		unit, unit_weight,
-		price_cost, price_sell_p, price_sell_e, price_market, inventory,
+		price_cost, price_sell_p, price_sell_e,
+		price_market, inventory,
 		brand,product_introduction
 		from tp_product
 		where product_id = #productId:VARCHAR#
@@ -61,7 +81,8 @@
 		parameterClass="com.pl.web.a.product.TpProduct">
 		select product_id, product_name_simple, product_name, imagFileName,
 		unit, unit_weight,
-		price_cost, price_sell_p, price_sell_e, price_market, inventory, brand
+		price_cost, price_sell_p, price_sell_e,
+		price_market, inventory, brand
 		from tp_product
 		<dynamic prepend="where">
 			<isNotEmpty prepend="and" property="productId">

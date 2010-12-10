@@ -51,6 +51,8 @@ ajaxAnywhere.onAfterResponseProcessing = function() {
 				</tr>
 				<tr>
 					<td colspan="2">
+						<div id="errorShow" style="background: green" style="color: red"><s:actionerror theme="simple"/></div>
+						<div id="errorShow" style="background: green"><s:actionmessage theme="simple"/></div>
 						<s:submit value="提交" />
 					</td>
 				</tr>
@@ -61,6 +63,10 @@ ajaxAnywhere.onAfterResponseProcessing = function() {
 			<tr>
 				<td>
 					<a href="${path}/a/product/product!preSave.action?saveFlag=update&tpProduct.productId=${productId}">编辑
+					</a>
+				</td>
+				<td>
+					<a href="${path}/a/product/product!deleteOne.action?tpProduct.productId=${productId}">删除
 					</a>
 				</td>
 				<td>

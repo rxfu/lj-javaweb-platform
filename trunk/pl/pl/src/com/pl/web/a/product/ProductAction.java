@@ -1,5 +1,6 @@
 package com.pl.web.a.product;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.pl.common.base.BaseAction;
@@ -36,13 +37,13 @@ public class ProductAction extends BaseAction
 				productService.edit(tpProduct);
 				return PRESAVE;
 			}else{
-				log.error("用户保存失败："+SAVEEXCEPTIONSTRINT);
-				this.addActionError("用户保存失败："+SAVEEXCEPTIONSTRINT);
+				log.error("产品保存失败："+SAVEEXCEPTIONSTRINT);
+				this.addActionError("产品保存失败："+SAVEEXCEPTIONSTRINT);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.error("用户保存失败："+e.getMessage());
-			this.addActionError("用户保存失败："+e.getMessage());
+			log.error("产品保存失败："+e.getMessage());
+			this.addActionError("产品保存失败："+e.getMessage());
 		}
 		return PRESAVE;
 	}
@@ -58,7 +59,21 @@ public class ProductAction extends BaseAction
 		}
 		return super.list();
 	}
+	
 	////////////////////////////////////////////////////////
+
+	@Override
+	public String deleteOne() {
+		try {
+			productService.deleteOne(tpProduct.getProductId());
+			this.addActionMessage("产品删除成功：已经删除的产品Id为："+tpProduct.getProductId());
+		} catch (SQLException e) {
+			e.printStackTrace();
+			log.error("产品删除失败："+e.getMessage());
+			this.addActionError("产品删除失败："+e.getMessage());
+		}
+		return this.list();
+	}
 
 	public void setProductService(ProductService productService) {
 		this.productService = productService;
