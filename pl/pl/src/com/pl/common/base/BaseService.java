@@ -1,9 +1,6 @@
 package com.pl.common.base;
 
 import java.util.List;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 /**
  * Service的抽象类，用户规范Service的格式。
  * 所有的Service必须继承自此类。
@@ -13,10 +10,6 @@ import org.apache.commons.logging.LogFactory;
 public class BaseService
 {
 	private static final long serialVersionUID = 1L;
-	protected static  Log log;
-	public BaseService(){
-		log   =  LogFactory.getLog(this.getClass().getName()); 
-	}
 	/**
 	 * 查询列表
 	 * @return 返回列表

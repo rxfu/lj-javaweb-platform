@@ -10,7 +10,7 @@ public class RegDaoImpl extends BaseDao implements RegDao {
 
 	public TsUser insert(TsUser tsUser) throws PlException {
 		tsUser.setUserId(IDFactory.getId());
-		return (TsUser) super.insert(tsUser);
+		return (TsUser) super.insert("Reg.insert",tsUser);
 	}
 
 	public String isExisted(String username) {

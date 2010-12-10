@@ -1,5 +1,7 @@
 package com.pl.web.w.reg;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.convention.annotation.Result;
 
 import com.pl.common.base.BaseAction;
@@ -16,6 +18,7 @@ import com.pl.exception.PlException;
 public class RegAction extends BaseAction
 {
 	private static final long serialVersionUID = 1L;
+	private static final  Log log = LogFactory.getLog(RegAction.class);
 	private TsUser tsUser;
 	private RegService regService;
 	

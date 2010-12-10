@@ -3,6 +3,9 @@ package com.pl.web.a.product;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.pl.common.base.BaseAction;
 import com.pl.common.pager.Pager;
 
@@ -15,6 +18,7 @@ import com.pl.common.pager.Pager;
 public class ProductAction extends BaseAction
 {
 	private static final long serialVersionUID = 1L;
+	private static final  Log log = LogFactory.getLog(ProductAction.class);
 	private ProductService productService;
 	private Pager pager;
 	private TpProduct tpProduct;
@@ -53,7 +57,7 @@ public class ProductAction extends BaseAction
 		if(null == pager){
 			pager = new Pager();
 		}
-		if(!isFirst){
+		if(!isFirst()){
 			List<TpProduct> reList = productService.list(tpProduct,pager);
 			setRequestVal("reList",reList);
 		}
