@@ -18,4 +18,5 @@ public interface ProductService
 	public void edit(TpProduct tpProduct) throws SQLException;
 	public List<TpProduct> list(TpProduct tpProduct,Pager pager);
 	public TpProduct selectOneById(String productId);
+	public void deleteOne(String productId) throws SQLException;
 }

@@ -29,7 +29,12 @@ public class ProductServiceImpl extends BaseService implements ProductService {
 	public TpProduct selectOneById(String productId) {
 		return productDao.selectOneById(productId);
 	}
+	public void deleteOne(String productId) throws SQLException {
+		productDao.deleteById(productId);
+	}
 	// //////////////////////////////////////////////
+
+
 
 
 	public void setProductDao(ProductDao productDao) {
