@@ -22,7 +22,7 @@ ajaxAnywhere.onAfterResponseProcessing = function() {
 		<table width="100%" align="center">
 			<tr>
 				<td>
-					<a href="${path}/a/product/product!preAdd.action" target="_top">产品添加</a>
+					<a href="${path}/a/product/product!preSave.action?saveFlag=insert" target="_top">产品添加</a>
 				</td>
 			</tr>
 		</table>
@@ -56,9 +56,13 @@ ajaxAnywhere.onAfterResponseProcessing = function() {
 				</tr>
 			</table>
 		</s:form>
-		<table width="100%" align="center">
+		<table width="100%" align="center" border="1">
 			<s:iterator value="#request.reList" id="tpProduct">
 			<tr>
+				<td>
+					<a href="${path}/a/product/product!preSave.action?saveFlag=update&tpProduct.productId=${productId}">编辑
+					</a>
+				</td>
 				<td>
 					<s:property value="#tpProduct.productId" />
 				</td>
@@ -67,8 +71,10 @@ ajaxAnywhere.onAfterResponseProcessing = function() {
 				</td>
 			</tr>
 			</s:iterator>
+		</table>
+		<table>
 			<tr>
-				<td colspan="2">
+				<td colspan="3">
 					<pg:pager url="${path}/a/product/product!list.action" 
 					items="${pager.items}" maxPageItems="${pager.maxPageItems}"
 					export="currentPageNumber=pageNumber" scope="request">

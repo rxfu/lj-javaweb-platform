@@ -1,55 +1,92 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
-<sqlMap namespace="Product" >
-  <resultMap id="Product" class="com.pl.web.a.product.TpProduct" >
-    <result column="product_id" property="productId" jdbcType="VARCHAR" />
-    <result column="product_name_simple" property="productNameSimple" jdbcType="VARCHAR" />
-    <result column="product_name" property="productName" jdbcType="VARCHAR" />
-    <result column="imagFileName" property="imagfilename" jdbcType="VARCHAR" />
-    <result column="unit" property="unit" jdbcType="VARCHAR" />
-    <result column="unit_weight" property="unitWeight" jdbcType="REAL" />
-    <result column="price_cost" property="priceCost" jdbcType="REAL" />
-    <result column="price_sell_p" property="priceSellP" jdbcType="REAL" />
-    <result column="price_sell_e" property="priceSellE" jdbcType="REAL" />
-    <result column="price_market" property="priceMarket" jdbcType="REAL" />
-    <result column="inventory" property="inventory" jdbcType="INTEGER" />
-    <result column="brand" property="brand" jdbcType="VARCHAR" />
-  </resultMap>
-  <resultMap id="ProductLong" class="com.pl.web.a.product.TpProduct" extends="Product" >
-    <result column="product_introduction" property="productIntroduction" jdbcType="LONGVARCHAR" />
-  </resultMap>
-  <insert id="insert" parameterClass="com.pl.web.a.product.TpProduct" >
-    insert into tp_product (product_id, product_name_simple, product_name, imagFileName, unit,
-      unit_weight, price_cost, price_sell_p, price_sell_e, price_market, inventory, brand,
-      product_introduction)
-    values (#productId:VARCHAR#, #productNameSimple:VARCHAR#, #productName:VARCHAR#,
-      #imagfilename:VARCHAR#, #unit:VARCHAR#, #unitWeight:REAL#, #priceCost:REAL#,
-      #priceSellP:REAL#, #priceSellE:REAL#, #priceMarket:REAL#, #inventory:INTEGER#,
-      #brand:VARCHAR#, #productIntroduction:LONGVARCHAR#)
+<sqlMap namespace="Product">
+	<resultMap id="Product" class="com.pl.web.a.product.TpProduct">
+		<result column="product_id" property="productId" jdbcType="VARCHAR" />
+		<result column="product_name_simple" property="productNameSimple"
+			jdbcType="VARCHAR" />
+		<result column="product_name" property="productName" jdbcType="VARCHAR" />
+		<result column="imagFileName" property="imagfilename" jdbcType="VARCHAR" />
+		<result column="unit" property="unit" jdbcType="VARCHAR" />
+		<result column="unit_weight" property="unitWeight" jdbcType="REAL" />
+		<result column="price_cost" property="priceCost" jdbcType="REAL" />
+		<result column="price_sell_p" property="priceSellP" jdbcType="REAL" />
+		<result column="price_sell_e" property="priceSellE" jdbcType="REAL" />
+		<result column="price_market" property="priceMarket" jdbcType="REAL" />
+		<result column="inventory" property="inventory" jdbcType="INTEGER" />
+		<result column="brand" property="brand" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="ProductLong" class="com.pl.web.a.product.TpProduct"
+		extends="Product">
+		<result column="product_introduction" property="productIntroduction"
+			jdbcType="LONGVARCHAR" />
+	</resultMap>
+	<insert id="insert" parameterClass="com.pl.web.a.product.TpProduct">
+		insert into tp_product (product_id, product_name_simple, product_name,
+		imagFileName, unit,
+		unit_weight, price_cost, price_sell_p, price_sell_e, price_market, inventory,
+		brand,
+		product_introduction)
+		values (#productId:VARCHAR#, #productNameSimple:VARCHAR#,
+		#productName:VARCHAR#,
+		#imagfilename:VARCHAR#, #unit:VARCHAR#, #unitWeight:REAL#, #priceCost:REAL#,
+		#priceSellP:REAL#, #priceSellE:REAL#, #priceMarket:REAL#,
+		#inventory:INTEGER#,
+		#brand:VARCHAR#, #productIntroduction:LONGVARCHAR#)
   </insert>
-    <select id="selectPager" resultMap="Product" parameterClass="com.pl.web.a.product.TpProduct" >
-    select product_id, product_name_simple, product_name, imagFileName, unit, unit_weight,
-      price_cost, price_sell_p, price_sell_e, price_market, inventory, brand
-    from tp_product
+	<update id="update" parameterClass="com.pl.web.a.product.TpProduct">
+		update tp_product
+		set product_name_simple = #productNameSimple:VARCHAR#,
+		product_name = #productName:VARCHAR#,
+		imagFileName = #imagfilename:VARCHAR#,
+		unit = #unit:VARCHAR#,
+		unit_weight = #unitWeight:REAL#,
+		price_cost = #priceCost:REAL#,
+		price_sell_p = #priceSellP:REAL#,
+		price_sell_e = #priceSellE:REAL#,
+		price_market = #priceMarket:REAL#,
+		inventory = #inventory:INTEGER#,
+		brand = #brand:VARCHAR#
+		where product_id = #productId:VARCHAR#
+  </update>
+	<select id="selectOneById" resultMap="ProductLong" parameterClass="String">
+		select product_id, product_name_simple, product_name, imagFileName,
+		unit, unit_weight,
+		price_cost, price_sell_p, price_sell_e, price_market, inventory,
+		brand,product_introduction
+		from tp_product
+		where product_id = #productId:VARCHAR#
+  </select>
+	<select id="selectPager" resultMap="Product"
+		parameterClass="com.pl.web.a.product.TpProduct">
+		select product_id, product_name_simple, product_name, imagFileName,
+		unit, unit_weight,
+		price_cost, price_sell_p, price_sell_e, price_market, inventory, brand
+		from tp_product
 		<dynamic prepend="where">
 			<isNotEmpty prepend="and" property="productId">
-				product_id like concat('%',#productId:VARCHAR#,'%')
+				product_id like
+				concat('%',#productId:VARCHAR#,'%')
       		</isNotEmpty>
 			<isNotEmpty prepend="and" property="productNameSimple">
-				product_name_simple like concat('%',#productNameSimple:VARCHAR#,'%')
+				product_name_simple
+				like concat('%',#productNameSimple:VARCHAR#,'%')
       		</isNotEmpty>
 		</dynamic>
-  </select>
-  <select id="selectPagerCount" resultClass="Integer" parameterClass="com.pl.web.a.product.TpProduct" >
-	  	select count(1)
-	    from tp_product
+	</select>
+	<select id="selectPagerCount" resultClass="Integer"
+		parameterClass="com.pl.web.a.product.TpProduct">
+		select count(1)
+		from tp_product
 		<dynamic prepend="where">
 			<isNotEmpty prepend="and" property="productId">
-				product_id like concat('%',#productId:VARCHAR#,'%')
+				product_id like
+				concat('%',#productId:VARCHAR#,'%')
       		</isNotEmpty>
 			<isNotEmpty prepend="and" property="productNameSimple">
-				product_name_simple like concat('%',#productNameSimple:VARCHAR#,'%')
+				product_name_simple
+				like concat('%',#productNameSimple:VARCHAR#,'%')
       		</isNotEmpty>
 		</dynamic>
-  </select>
+	</select>
 </sqlMap>

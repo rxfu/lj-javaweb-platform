@@ -3,13 +3,14 @@ package com.pl.web.w.reg.impl;
 import org.apache.commons.lang.xwork.StringUtils;
 import org.springframework.security.authentication.encoding.BasePasswordEncoder;
 
+import com.pl.common.base.BaseService;
 import com.pl.exception.PlException;
 import com.pl.web.w.reg.RegDao;
 import com.pl.web.w.reg.RegService;
 import com.pl.web.w.reg.TsUser;
 
 
-public class RegServiceImpl  implements RegService
+public class RegServiceImpl extends BaseService implements RegService
 {
 	BasePasswordEncoder basePasswordEncoder;
 	private RegDao regDao;
