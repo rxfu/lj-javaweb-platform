@@ -80,7 +80,7 @@ public abstract class BaseDao extends SqlMapClientDaoSupport {
 	 * @return
 	 */
 	public Object selectOneById(Object obj) {
-		return this.getSqlMapClientTemplate().queryForList(
+		return this.getSqlMapClientTemplate().queryForObject(
 				nameSpace + ".selectOneById", obj);
 	}
 	/**
@@ -127,10 +127,15 @@ public abstract class BaseDao extends SqlMapClientDaoSupport {
 	 * @param obj
 	 *            ibatis参数，可以是String 也可以是实体类
 	 * @return 删除数据量
+	 * @throws SQLException 
 	 */
-	public int delete(Object obj) {
-		return this.getSqlMapClientTemplate()
+	public int delete(Object obj) throws SQLException {
+		int flag = this.getSqlMapClientTemplate()
 				.delete(nameSpace + ".delete", obj);
+		if (1 < flag) {
+			throw new SQLException("删除了0条数据");
+		}
+		return flag;
 	}
 
 	/**
@@ -139,10 +144,15 @@ public abstract class BaseDao extends SqlMapClientDaoSupport {
 	 * @param obj
 	 *            需要更新的实体类
 	 * @return
+	 * @throws SQLException 
 	 */
-	public int update(Object obj) {
-		return this.getSqlMapClientTemplate()
+	public int update(Object obj) throws SQLException {
+		int flag = this.getSqlMapClientTemplate()
 				.update(nameSpace + ".update", obj);
+		if (1 < flag) {
+			throw new SQLException("未成功更新任何数据");
+		}
+		return flag;
 	}
 
 }

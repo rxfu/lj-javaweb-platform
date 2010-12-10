@@ -56,6 +56,10 @@ public abstract class BaseAction extends ActionSupport
 	 */
 	protected final static String SAVE = "save";
 	/**
+	 * 新增或修改一次信息
+	 */
+	protected final static String SAVEEXCEPTIONSTRINT = "无新增或修改标记";
+	/**
 	 * 删除一个
 	 */
 	protected final static String DELETEONE = "deleteOne";
@@ -63,6 +67,8 @@ public abstract class BaseAction extends ActionSupport
 	 * 删除多个
 	 */
 	protected final static String DELETESELECT = "deleteSelect";
+	
+
 	/**
 	 * 查询列表前的准备
 	 * @return
@@ -105,6 +111,13 @@ public abstract class BaseAction extends ActionSupport
 	public String edit(){
 		return EDIT;
 	}
+	public String preSave(){
+		return PRESAVE;
+	}
+	/**
+	 * 保存，分修改和新增
+	 * @return
+	 */
 	public String save(){
 		return SAVE;
 	}
@@ -178,16 +191,26 @@ public abstract class BaseAction extends ActionSupport
 			this.isFirst = true;
 		}
 	}
-	protected boolean isInsert;
-	public void setIsInsert(String isInsert) {
-		if("1".equals(isInsert)){
-			this.isInsert = true;
+	protected String saveFlag;
+	public String getSaveFlag() {
+		return saveFlag;
+	}
+	public void setSaveFlag(String saveFlag) {
+		this.saveFlag = saveFlag;
+	}
+	protected boolean isInsert(){
+		if("insert".equals(saveFlag)){
+			return true;
+		}else{
+			return false;
 		}
 	}
-	protected boolean isUpdate;
-	public void setIsUpdate(String isUpdate) {
-		if("1".equals(isUpdate)){
-			this.isUpdate = true;
+	protected boolean isUpdate(){
+		if("update".equals(saveFlag)){
+			return true;
+		}else{
+			return false;
 		}
 	}
+	
 }

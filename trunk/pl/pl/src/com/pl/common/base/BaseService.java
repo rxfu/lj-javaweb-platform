@@ -4,15 +4,13 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
-import com.opensymphony.xwork2.ActionSupport;
 /**
  * Service的抽象类，用户规范Service的格式。
  * 所有的Service必须继承自此类。
  * @author 熊庆春
  *
  */
-public abstract class BaseService extends ActionSupport
+public class BaseService
 {
 	private static final long serialVersionUID = 1L;
 	protected static  Log log;
@@ -23,35 +21,61 @@ public abstract class BaseService extends ActionSupport
 	 * 查询列表
 	 * @return 返回列表
 	 */
-	public abstract List<?> list();
+	public List<?> list(){
+		return null;
+	}
 	/**
 	 * 添加前的准备
 	 * @return
 	 */
-	public abstract Object preAdd();
+	public Object preAdd(){
+		return null;
+	}
 	/**
 	 * 添加
 	 * @return
 	 */
-	public abstract void add();
+	public void add(){
+	}
+	/**
+	 * 查询单个
+	 * @return
+	 */
+	public Object selectOne(){
+		return null;
+	}
+	/**
+	 * 查询单个
+	 * @return
+	 */
+	public Object selectOneById(){
+		return null;
+	}
+	
 	/**
 	 * 修改前的准备
 	 * @return
 	 */
-	public abstract Object preEdit();
+	public Object preEdit(){
+		return null;
+	}
 	/**
 	 * 修改
 	 * @return
 	 */
-	public abstract void edit();
+	public void edit(){
+	}
 	/**
 	 * 单个删除
 	 * @return
 	 */
-	public abstract void deleteOne();
+	public void deleteOne(){
+	}
 	/**
 	 * 多个删除
 	 * @return 删除数量
 	 */
-	public abstract int deleteSelect();
+	public  int deleteSelect(){
+		return 0;
+	}
 }

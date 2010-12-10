@@ -19,8 +19,32 @@ public class ProductAction extends BaseAction
 	private TpProduct tpProduct;
 	
 	@Override
-	public String add() {
-		return super.add();
+	public String preSave() {
+		if(isUpdate()){
+			this.tpProduct = productService.selectOneById(tpProduct.getProductId());
+		}
+		return PRESAVE;
+	}
+
+	@Override
+	public String save() {
+		try {
+			if(isInsert()){
+				productService.add(tpProduct);
+				return this.list();
+			}else if(isUpdate()){
+				productService.edit(tpProduct);
+				return PRESAVE;
+			}else{
+				log.error("用户保存失败："+SAVEEXCEPTIONSTRINT);
+				this.addActionError("用户保存失败："+SAVEEXCEPTIONSTRINT);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.error("用户保存失败："+e.getMessage());
+			this.addActionError("用户保存失败："+e.getMessage());
+		}
+		return PRESAVE;
 	}
 
 	@Override
