@@ -48,6 +48,14 @@ public abstract class BaseAction extends ActionSupport
 	 */
 	protected final static String EDIT = "edit";
 	/**
+	 * 修改前的准备
+	 */
+	protected final static String PRESAVE = "preSave";
+	/**
+	 * 保存
+	 */
+	protected final static String SAVE = "save";
+	/**
 	 * 删除一个
 	 */
 	protected final static String DELETEONE = "deleteOne";
@@ -96,6 +104,9 @@ public abstract class BaseAction extends ActionSupport
 	 */
 	public String edit(){
 		return EDIT;
+	}
+	public String save(){
+		return SAVE;
 	}
 	/**
 	 * 单个删除
@@ -165,6 +176,18 @@ public abstract class BaseAction extends ActionSupport
 	public void setIsFirst(String isFirst) {
 		if("1".equals(isFirst)){
 			this.isFirst = true;
+		}
+	}
+	protected boolean isInsert;
+	public void setIsInsert(String isInsert) {
+		if("1".equals(isInsert)){
+			this.isInsert = true;
+		}
+	}
+	protected boolean isUpdate;
+	public void setIsUpdate(String isUpdate) {
+		if("1".equals(isUpdate)){
+			this.isUpdate = true;
 		}
 	}
 }
