@@ -3,6 +3,8 @@ package com.pl.common.base;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator;
+import org.springframework.jdbc.support.SQLExceptionTranslator;
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
 import com.pl.common.pager.Pager;
@@ -15,6 +17,10 @@ import com.pl.common.pager.Pager;
  */
 public abstract class BaseDao extends SqlMapClientDaoSupport {
 	private static final long serialVersionUID = 1L;
+	public BaseDao(){
+		SQLExceptionTranslator tr = new SQLErrorCodeSQLExceptionTranslator("MySQL");
+		this.getSqlMapClientTemplate().setExceptionTranslator(tr);
+	}
 
 	/**
 	 * 查询列表
