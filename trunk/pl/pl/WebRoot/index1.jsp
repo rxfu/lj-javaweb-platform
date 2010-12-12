@@ -7,7 +7,7 @@
 <title>index</title>
 </head>
 <body>
-<%@include file="/include/top.jsp"%>
-<jsp:include page="${path}/include/top.jsp"></jsp:include>
+登录用户：<ss:authentication property="name"/><br/>
+<a href="${path}/a/menu/menu!list.action" target="_top">后台管理菜单</a><br/>
 </body>
 </html>
