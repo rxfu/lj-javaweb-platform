@@ -5,28 +5,38 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.struts2.convention.annotation.InterceptorRef;
+import org.apache.struts2.convention.annotation.InterceptorRefs;
+import org.apache.struts2.convention.annotation.Result;
 
 import com.pl.common.base.BaseAction;
 import com.pl.common.pager.Pager;
 
 /**
  * 用户注册
+ * 
  * @author 熊庆春
- *
+ * 
  */
-
-public class ProductAction extends BaseAction
-{
+@Result(name = "input", location = "product-preSave.jsp")
+@InterceptorRefs({
+		@InterceptorRef(value = "fileUpload", params = { "allowedTypes",
+				"image/bmp,image/png,image/gif,image/JPEG,image/jpeg,image/JPG,image/jpg",
+				"maximumSize", "20971520" }),
+		@InterceptorRef(value = "defaultStack")
+		})
+public class ProductAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
-	private static final  Log log = LogFactory.getLog(ProductAction.class);
+	private static final Log log = LogFactory.getLog(ProductAction.class);
 	private ProductService productService;
 	private Pager pager;
 	private TpProduct tpProduct;
-	
+
 	@Override
 	public String preSave() {
-		if(isUpdate()){
-			this.tpProduct = productService.selectOneById(tpProduct.getProductId());
+		if (isUpdate()) {
+			this.tpProduct = productService.selectOneById(tpProduct
+					.getProductId());
 		}
 		return PRESAVE;
 	}
@@ -34,47 +44,49 @@ public class ProductAction extends BaseAction
 	@Override
 	public String save() {
 		try {
-			if(isInsert()){
+			if (isInsert()) {
 				productService.add(tpProduct);
 				return this.list();
-			}else if(isUpdate()){
+			} else if (isUpdate()) {
 				productService.edit(tpProduct);
 				return PRESAVE;
-			}else{
-				log.error("产品保存失败："+SAVEEXCEPTIONSTRINT);
-				this.addActionError("产品保存失败："+SAVEEXCEPTIONSTRINT);
+			} else {
+				log.error("产品保存失败：" + SAVEEXCEPTIONSTRINT);
+				this.addActionError("产品保存失败：" + SAVEEXCEPTIONSTRINT);
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.error("产品保存失败："+e.getMessage());
-			this.addActionError("产品保存失败："+e.getMessage());
+			log.error("产品保存失败：" + e.getMessage());
+			this.addActionError("产品保存失败：" + e.getMessage());
 		}
 		return PRESAVE;
 	}
 
 	@Override
 	public String list() {
-		if(null == pager){
+		if (null == pager) {
 			pager = new Pager();
 		}
-		if(!isFirst()){
-			List<TpProduct> reList = productService.list(tpProduct,pager);
-			setRequestVal("reList",reList);
+		if (!isFirst()) {
+			List<TpProduct> reList = productService.list(tpProduct, pager);
+			setRequestVal("reList", reList);
 		}
 		return super.list();
 	}
-	
-	////////////////////////////////////////////////////////
+
+	// //////////////////////////////////////////////////////
 
 	@Override
 	public String deleteOne() {
 		try {
 			productService.deleteOne(tpProduct.getProductId());
-			this.addActionMessage("产品删除成功：已经删除的产品Id为："+tpProduct.getProductId());
+			this.addActionMessage("产品删除成功：已经删除的产品Id为："
+					+ tpProduct.getProductId());
 		} catch (SQLException e) {
 			e.printStackTrace();
-			log.error("产品删除失败："+e.getMessage());
-			this.addActionError("产品删除失败："+e.getMessage());
+			log.error("产品删除失败：" + e.getMessage());
+			this.addActionError("产品删除失败：" + e.getMessage());
 		}
 		return this.list();
 	}
@@ -98,7 +110,5 @@ public class ProductAction extends BaseAction
 	public void setPager(Pager pager) {
 		this.pager = pager;
 	}
-
-
 
 }

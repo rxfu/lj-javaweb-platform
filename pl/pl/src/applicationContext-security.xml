@@ -14,6 +14,7 @@
 		<ss:intercept-url pattern="/css/**" filters="none" />
 		<ss:intercept-url pattern="/imags/**" filters="none" />
 		<ss:intercept-url pattern="/imags_up/**" filters="none" />
+		<ss:intercept-url pattern="/uploads/**" filters="none" />
 		<ss:intercept-url pattern="/js/**" filters="none" />
 		<!-- 所有用户都可以使用 -->
 		<ss:intercept-url pattern="/index.jsp" access="IS_AUTHENTICATED_ANONYMOUSLY"/>

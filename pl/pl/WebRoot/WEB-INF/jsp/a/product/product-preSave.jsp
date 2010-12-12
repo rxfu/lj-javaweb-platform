@@ -8,7 +8,7 @@
 		<title>产品保存</title>
 	</head>
 	<body>
-	<s:form id="form1" action="product!save.action">
+	<s:form id="form1" action="product!save.action" enctype="multipart/form-data" method="POST">
 	<s:hidden name="saveFlag"/>
 	<s:hidden name="tpProduct.productId"/>
 		<table width="100%" align="center">
@@ -27,7 +27,7 @@
 			</tr>
 			<tr>
 				<td>封面图片</td>
-				<td><s:textfield name="tpProduct.imagfilename"/></td>
+				<td><s:file name="tpProduct.imagfile"/></td>
 			</tr>
 			<tr>
 				<td>单位</td>

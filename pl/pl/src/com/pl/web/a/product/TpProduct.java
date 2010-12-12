@@ -1,11 +1,15 @@
 package com.pl.web.a.product;
 
+import java.io.File;
+
 public class TpProduct {
 
     private String productId;
     private String productNameSimple;
     private String productName;
-    private String imagfilename;
+    private File imagfile;
+    private String imagfileFileName;
+    private String imagfileContentType;
     private String unit;
     private Float unitWeight;
     private Float priceCost;
@@ -33,11 +37,11 @@ public class TpProduct {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public String getImagfilename() {
-		return imagfilename;
+	public String getImagfileFileName() {
+		return imagfileFileName;
 	}
-	public void setImagfilename(String imagfilename) {
-		this.imagfilename = imagfilename;
+	public void setImagfileFileName(String imagfileFileName) {
+		this.imagfileFileName = imagfileFileName;
 	}
 	public String getUnit() {
 		return unit;
@@ -92,6 +96,18 @@ public class TpProduct {
 	}
 	public void setProductIntroduction(String productIntroduction) {
 		this.productIntroduction = productIntroduction;
+	}
+	public File getImagfile() {
+		return imagfile;
+	}
+	public void setImagfile(File imagfile) {
+		this.imagfile = imagfile;
+	}
+	public String getImagfileContentType() {
+		return imagfileContentType;
+	}
+	public void setImagfileContentType(String imagfileContentType) {
+		this.imagfileContentType = imagfileContentType;
 	}
 
 }

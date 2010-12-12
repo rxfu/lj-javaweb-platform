@@ -26,7 +26,7 @@ public class ProductDaoImpl extends BaseDao implements ProductDao {
 	}
 
 	public TpProduct selectOneById(String productId) {
-		return (TpProduct) super.selectOne("Product.selectById",productId);
+		return (TpProduct) super.selectOne("Product.selectOneById",productId);
 	}
 
 	public void deleteById(String productId) throws SQLException {
