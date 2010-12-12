@@ -61,9 +61,9 @@
 			});
 			
 			function callbackFun(date){
-				if(date.flag == 'notExisted'){
+				if(date.flag == 'existed'){
 					$('#usernameShow').html("<font color='red'>用户已经存在！</font>");
-				}else if(date.flag == 'existed'){
+				}else if(date.flag == 'notExisted'){
 					$('#usernameShow').html("<font color='green'>用户可用！</font>");
 				}
 			}
