@@ -8,6 +8,6 @@
 </head>
 <body>
 <%@include file="/include/top.jsp"%>
-<jsp:include page="${path}/include/top.jsp"></jsp:include>
+<%@include file="/include/top1.jsp"%>
 </body>
 </html>

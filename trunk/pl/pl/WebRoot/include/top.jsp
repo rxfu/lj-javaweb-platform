@@ -20,7 +20,7 @@
 		</c:choose>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="${path}/w/reg/reg!preAdd.action" style="color:red">【用户注册】</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	</td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="${path}/imags/telephone.gif" height="18"></td>
   </tr>
   <tr>
     <td valign="middle" align="center" height="80"><img src="${path}/imags_up/top.jpg"/></td>
