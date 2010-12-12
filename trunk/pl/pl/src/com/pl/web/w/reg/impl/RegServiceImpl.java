@@ -9,7 +9,6 @@ import com.pl.web.w.reg.RegDao;
 import com.pl.web.w.reg.RegService;
 import com.pl.web.w.reg.TsUser;
 
-
 public class RegServiceImpl extends BaseService implements RegService
 {
 	BasePasswordEncoder basePasswordEncoder;
@@ -21,7 +20,7 @@ public class RegServiceImpl extends BaseService implements RegService
 		if("existed".equals(isExisted(tsUser.getUsername()))){
 			throw new PlException("用户名已经存在！");
 		}
-		regDao.insert(tsUser);	
+		regDao.insert(tsUser);
 	}
 	public String isExisted(String username) {
 		if(StringUtils.isEmpty(regDao.isExisted(username))){
