@@ -72,6 +72,9 @@
 					<td>
 						<s:property value="#tpProduct.productNameSimple" />
 					</td>
+					<td>
+						<img  src="${path}/uploads/${imagfileFileName}">
+					</td>
 				</tr>
 			</s:iterator>
 		</table>

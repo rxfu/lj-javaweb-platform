@@ -6,7 +6,7 @@
 		<result column="product_name_simple" property="productNameSimple"
 			jdbcType="VARCHAR" />
 		<result column="product_name" property="productName" jdbcType="VARCHAR" />
-		<result column="imagFileName" property="imagfilename" jdbcType="VARCHAR" />
+		  <result column="imagfile_file_name" jdbcType="VARCHAR" property="imagfileFileName" />
 		<result column="unit" property="unit" jdbcType="VARCHAR" />
 		<result column="unit_weight" property="unitWeight" jdbcType="REAL" />
 		<result column="price_cost" property="priceCost" jdbcType="REAL" />
@@ -24,7 +24,7 @@
 	<insert id="insert" parameterClass="com.pl.web.a.product.TpProduct">
 		insert into tp_product
 		(product_id, product_name_simple, product_name,
-		imagFileName, unit,
+		imagfile_file_name, unit,
 		unit_weight, price_cost, price_sell_p, price_sell_e, price_market,
 		inventory,
 		brand,
@@ -32,7 +32,7 @@
 		values (#productId:VARCHAR#,
 		#productNameSimple:VARCHAR#,
 		#productName:VARCHAR#,
-		#imagfilename:VARCHAR#, #unit:VARCHAR#, #unitWeight:REAL#,
+		#imagfileFileName:VARCHAR#, #unit:VARCHAR#, #unitWeight:REAL#,
 		#priceCost:REAL#,
 		#priceSellP:REAL#, #priceSellE:REAL#,
 		#priceMarket:REAL#,
@@ -42,11 +42,13 @@
   </insert>
 	<update id="update" parameterClass="com.pl.web.a.product.TpProduct">
 		update tp_product
-		set
+		<dynamic prepend="set">
 		product_name_simple = #productNameSimple:VARCHAR#,
 		product_name =
 		#productName:VARCHAR#,
-		imagFileName = #imagfilename:VARCHAR#,
+		<isEmpty prepend="," property="productNameSimple">
+        	product_name_simple = #record.productNameSimple:VARCHAR#
+      	</isEmpty>
 		unit =
 		#unit:VARCHAR#,
 		unit_weight = #unitWeight:REAL#,
@@ -61,6 +63,7 @@
 		brand = #brand:VARCHAR#
 		where product_id =
 		#productId:VARCHAR#
+		</dynamic>
   </update>
 	<delete id="deleteById" parameterClass="String">
 		delete from tp_product
@@ -69,7 +72,7 @@
 	<select id="selectOneById" resultMap="ProductLong"
 		parameterClass="String">
 		select product_id, product_name_simple, product_name,
-		imagFileName,
+		imagfile_file_name,
 		unit, unit_weight,
 		price_cost, price_sell_p, price_sell_e,
 		price_market, inventory,
@@ -79,7 +82,7 @@
   </select>
 	<select id="selectPager" resultMap="Product"
 		parameterClass="com.pl.web.a.product.TpProduct">
-		select product_id, product_name_simple, product_name, imagFileName,
+		select product_id, product_name_simple, product_name, imagfile_file_name,
 		unit, unit_weight,
 		price_cost, price_sell_p, price_sell_e,
 		price_market, inventory, brand

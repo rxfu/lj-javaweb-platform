@@ -71,7 +71,7 @@ public abstract class BaseDao extends SqlMapClientDaoSupport {
 	 */
 	public Object insert(String statementName,Object obj) {
 		return this.getSqlMapClientTemplate()
-				.insert(obj.getClass() + ".insert", obj);
+				.insert(statementName, obj);
 	}
 
 	/**
