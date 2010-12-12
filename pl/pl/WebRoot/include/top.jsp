@@ -13,7 +13,7 @@
 		<c:choose>
 			<c:when test="${username==anonymousUser}">
 				<font color="#999999">欢迎来${sysName}！</font>
-				<a href="${path}/sys/user/user!preLogin.action" >【请登录】</a>			</c:when>
+				<a href="${path}/w/reg/reg!preLogin.action" >【请登录】</a>			</c:when>
 			<c:otherwise>
 				<font color="#999999"><ss:authentication property="name"/>！欢迎来${sysName}！</font> 
 				<a href="${path}/j_spring_security_logout" >【退出】</a>			</c:otherwise>
