@@ -1,7 +1,10 @@
 package com.pl.web.w.reg.impl;
 
 import org.apache.commons.lang.xwork.StringUtils;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.encoding.BasePasswordEncoder;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.pl.common.base.BaseService;
 import com.pl.exception.PlException;
@@ -21,6 +24,11 @@ public class RegServiceImpl extends BaseService implements RegService
 			throw new PlException("用户名已经存在！");
 		}
 		regDao.insert(tsUser);
+		//注册后自动登录
+		UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(tsUser.getUsername(),tsUser.getPassword());  
+		SecurityContext context = SecurityContextHolder.getContext();  
+		context.setAuthentication(authenticationToken); 
+
 	}
 	public String isExisted(String username) {
 		if(StringUtils.isEmpty(regDao.isExisted(username))){

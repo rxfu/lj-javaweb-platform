@@ -42,6 +42,4 @@
 	<bean id="methodTimeLog" class="com.pl.aop.MethodTimeLog"/>    
 	<bean id="securityUserDao" class="com.pl.web.sys.security.user.impl.SecurityUserDaoImpl"/>
 	<bean id="userDetailsService" class="com.pl.web.sys.security.user.impl.UserDetailsServiceImpl"/>
-	<bean id="regDao" class="com.pl.web.w.reg.impl.RegDaoImpl"/>
-	<bean id="basePasswordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
 </beans>

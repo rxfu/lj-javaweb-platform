@@ -6,5 +6,10 @@
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
 	default-autowire="byType" default-lazy-init="true">
+	<bean id="regDao" class="com.pl.web.w.reg.impl.RegDaoImpl"/>
+	<bean id="basePasswordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
 	<bean id="regService" class="com.pl.web.w.reg.impl.RegServiceImpl"/>
+	
+	<bean id="pdtypeDao" class="com.pl.web.w.pdtype.impl.PdtypeDaoImpl"/>
+	<bean id="pdtypeService" class="com.pl.web.w.pdtype.impl.PdtypeServiceImpl"/>
 </beans>
