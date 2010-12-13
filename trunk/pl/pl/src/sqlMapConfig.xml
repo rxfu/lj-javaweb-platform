@@ -23,4 +23,5 @@
     <sqlMap resource="com/pl/web/sys/security/user/SecurityUser_SqlMap.xml"/>
     <sqlMap resource="com/pl/web/w/reg/Reg_SqlMap.xml"/>
     <sqlMap resource="com/pl/web/a/product/tp_product_SqlMap.xml"/>
+    <sqlMap resource="com/pl/web/w/pdtype/pdtype_SqlMap.xml"/>
 </sqlMapConfig>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="Pdtype" >
+  <resultMap id="Pdtype" class="com.pl.web.w.pdtype.Pdtype" >
+    <result column="pdtype_name1" property="pdtypeName1" jdbcType="VARCHAR" />
+    <result column="pdtype_name2" property="pdtypeName2" jdbcType="VARCHAR" />
+    <result column="pdtype_name3" property="pdtypeName3" jdbcType="VARCHAR" />
+    <result column="seq" property="seq" jdbcType="SMALLINT" />
+  </resultMap>
+
+  <select id="selectAllPdtypeByLevel" resultMap="Pdtype" parameterClass="com.pl.web.w.pdtype.Pdtype" >
+  	<isEqual property="level" compareValue="1">
+  	select pdtype_name1, "" as pdtype_name2, "" as pdtype_name3, seq
+    from tp_pdtype1
+  	</isEqual>
+  	<isEqual property="level" compareValue="2">
+  	select pdtype_name1, pdtype_name2, "" as pdtype_name3, seq
+    from tp_pdtype2 where pdtype_name1 = #pdtypeName1:VARCHAR#
+  	</isEqual>
+   	<isEqual property="level" compareValue="3">
+  	select pdtype_name1, pdtype_name2, pdtype_name3, seq
+    from tp_pdtype3 where 
+    pdtype_name1 = #pdtypeName1:VARCHAR#
+    and pdtype_name2 = #pdtypeName2:VARCHAR#
+  	</isEqual>
+  	order by seq
+  </select>
+
+</sqlMap>
