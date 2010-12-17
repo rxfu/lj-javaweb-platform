@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@include file="/common/taglibs.jsp" %>
 <%@page import="com.pl.sys.SysContexts" %>
 <%@page import="com.pl.web.w.pdtype.Pdtype" %>
 <html>
@@ -8,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 .my_left_category{
-width:150px;
+width:200px;
 font-size:12px;
 font-family:arial,sans-serif;
 letter-spacing:2px;
@@ -25,7 +24,7 @@ margin:0px;
 color:#FFF;
 }
 .my_left_category .my_left_cat_list{
-width:148px;
+width:198px;
 border-color:#b60134;
 border-style:solid;
 border-width:0px 1px 1px 1px;
@@ -48,7 +47,7 @@ font-size:14px;
 line-height:22px;
 }
 .my_left_category .h2_cat{
-width:148px;
+width:198px;
 height:26px;
 background-image:url(${path}/imags/my_menubg.gif);
 background-repeat:no-repeat;
@@ -58,7 +57,7 @@ color:#333333;
 position:relative;
 }
 .my_left_category .h2_cat_1{
-width:148px;
+width:198px;
 height:26px;
 background-image:url(${path}/imags/my_menubg_1.gif);
 background-repeat:no-repeat;
@@ -89,7 +88,7 @@ padding-left:8px;
 .my_left_category h3 a{	line-height:26px;}
 .my_left_category .h3_cat{
 display:none;
-width:204px;
+width:254px;
 position:absolute;
 left:123px;
 margin-top:-26px;
@@ -98,11 +97,11 @@ cursor:auto;
 .my_left_category .shadow{
 position:inherit;
 background:url(${path}/imags/shadow_04.gif) left top;
-width:204px;
+width:254px;
 }
 .my_left_category .shadow_border{
 position:inherit;
-width:200px;
+width:250px;
 border:1px solid #959595; margin-top:1px;
 border-left-width:0px;
 background:url(${path}/imags/shadow_border.gif) no-repeat 0px 21px;
@@ -137,21 +136,22 @@ function showCookie(){
 
 }
 </script>
-<title>index</title>
 </head>
 <body>
 <div class="my_left_category">
-	<h1>所有商品类型</h1>
+	<h1 align="center">所有商品类型 </h1>
 	<div class="my_left_cat_list">
 		<%for(Pdtype pdtypeTemp1:SysContexts.currentAllPdtype){%>
 		<div class="h2_cat" onmouseover="this.className='h2_cat active_cat'" onmouseout="this.className='h2_cat'">
-			<h3><a href="#"><%=pdtypeTemp1.getPdtypeName1() %></a></h3>
+			<h3><a href="#" style="font-size: 14"><%=pdtypeTemp1.getPdtypeName1() %></a></h3>
 			<div class="h3_cat">
 			<div class="shadow">
 			<div class="shadow_border">
 			<ul>
 			<%for(Pdtype pdtypeTemp2:pdtypeTemp1.getChildrens()){%>
-				<li><a href="#"><%=pdtypeTemp2.getPdtypeName2() %></a></li>
+				<li>
+				<a href="#"><%=pdtypeTemp2.getPdtypeName2() %></a>
+				</li>
 			<%}%>
 			</ul>
 			</div>
