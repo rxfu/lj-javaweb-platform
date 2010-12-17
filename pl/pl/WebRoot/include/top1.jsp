@@ -1,26 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@include file="/common/taglibs.jsp"%>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>index</title>
 		<style type="text/css">
-.top_table {
-	background: url(${path}/imags/nav_bg.gif) repeat-x;
-	height: 39px;
-	position: relative;
-	width: 1000px;
-	margin: 0;
-	auto;
-}
-
-.top_input {
-	height: 30 "; width ="100;
-	border-bottom-color: black;
-	border-color: black;
-}
-</style>
+		.top_table {
+			background: url(${path}/imags/nav_bg.gif) repeat-x;
+			height: 39px;
+			position: relative;
+			width: 1000px;
+			margin: 0;
+			auto;
+		}
+		.top_input {
+			height: 30 "; width ="100;
+			border-bottom-color: black;
+			border-color: black;
+		}
+		</style>
 	</head>
 	<body>
 		<div align="center">

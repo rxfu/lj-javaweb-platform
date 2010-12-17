@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@include file="/common/taglibs.jsp" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>index</title>
 </head>
 <body>
 <table width="1000" border="0" cellspacing="0" cellpadding="0" align="center">

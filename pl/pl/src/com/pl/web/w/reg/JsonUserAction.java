@@ -1,5 +1,7 @@
 package com.pl.web.w.reg;
 
+import java.util.Map;
+
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 
@@ -38,6 +40,14 @@ public class JsonUserAction extends BaseAction {
 	}
 	public void setRegService(RegService regService) {
 		this.regService = regService;
+	}
+	public void setRequest(Map<String, Object> arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setSession(Map<String, Object> arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

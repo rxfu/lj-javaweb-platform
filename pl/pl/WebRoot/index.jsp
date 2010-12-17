@@ -10,11 +10,11 @@
 		<%@include file="/include/top.jsp"%>
 		<%@include file="/include/top1.jsp"%>
 		<div align="center">
-			<table width="1000" border="0" cellspacing="0" cellpadding="0">
+			<table width="1000" border="0" cellspacing="3" cellpadding="0">
 				<tr>
-					<td width="200">1</td>
-					<td width="600">1</td>
-					<td width="200">1
+					<td width="200" valign="top"><%@include file="/include/pdtype.jsp"%></td>
+					<td width="600" valign="top"><%@include file="/include/banner.jsp"%></td>
+					<td width="200" valign="top">1
 					</td>
 				</tr>
 			</table>
