@@ -12,4 +12,7 @@
 	
 	<bean id="pdtypeDao" class="com.pl.web.w.pdtype.impl.PdtypeDaoImpl"/>
 	<bean id="pdtypeService" class="com.pl.web.w.pdtype.impl.PdtypeServiceImpl"/>
+	
+	<bean id="pdDao" class="com.pl.web.w.pd.impl.PdDaoImpl"/>
+	<bean id="pdService" class="com.pl.web.w.pd.impl.PdServiceImpl"/>
 </beans>
