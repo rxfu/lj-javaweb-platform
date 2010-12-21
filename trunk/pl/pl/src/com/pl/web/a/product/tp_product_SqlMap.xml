@@ -46,11 +46,10 @@
 		product_name_simple = #productNameSimple:VARCHAR#,
 		product_name =
 		#productName:VARCHAR#,
-		<isEmpty prepend="," property="productNameSimple">
-        	product_name_simple = #record.productNameSimple:VARCHAR#
-      	</isEmpty>
-		unit =
-		#unit:VARCHAR#,
+		<isNotEmpty prepend="," property="imagfileFileName">
+        	imagfile_file_name = #imagfileFileName:VARCHAR#
+      	</isNotEmpty>,
+		unit = #unit:VARCHAR#,
 		unit_weight = #unitWeight:REAL#,
 		price_cost =
 		#priceCost:REAL#,

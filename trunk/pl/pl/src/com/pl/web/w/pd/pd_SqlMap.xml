@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="Pd">
+	<resultMap id="pdByGroup" class="com.pl.web.a.product.TpProduct">
+		<result column="product_id" property="productId" jdbcType="VARCHAR" />
+		<result column="product_name" property="productName" jdbcType="VARCHAR" />
+		<result column="imagfile_file_name" jdbcType="VARCHAR" property="imagfileFileName" />
+	</resultMap>
+	<resultMap id="pd" class="com.pl.web.a.product.TpProduct">
+		<result column="product_id" property="productId" jdbcType="VARCHAR" />
+		<result column="product_name_simple" property="productNameSimple" jdbcType="VARCHAR" />
+		<result column="product_name" property="productName" jdbcType="VARCHAR" />
+		<result column="imagfile_file_name" jdbcType="VARCHAR" property="imagfileFileName" />
+		<result column="unit" property="unit" jdbcType="VARCHAR" />
+		<result column="unit_weight" property="unitWeight" jdbcType="REAL" />
+		<result column="price_cost" property="priceCost" jdbcType="REAL" />
+		<result column="price_sell_p" property="priceSellP" jdbcType="REAL" />
+		<result column="price_sell_e" property="priceSellE" jdbcType="REAL" />
+		<result column="price_market" property="priceMarket" jdbcType="REAL" />
+		<result column="inventory" property="inventory" jdbcType="INTEGER" />
+		<result column="brand" property="brand" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="ProductLong" class="com.pl.web.a.product.TpProduct"
+		extends="pd">
+		<result column="product_introduction" property="productIntroduction"
+			jdbcType="LONGVARCHAR" />
+	</resultMap>
+
+	<select id="selectByGroup" resultMap="pdByGroup"
+		parameterClass="String">
+		select tp.product_id,tp.product_name,
+		imagfile_file_name
+		from tp_product tp,tp_pdgroup tpg
+		where tp.product_id = tpg.product_id and tpg.group_id = #groupid:VARCHAR#
+  </select>
+
+</sqlMap>
