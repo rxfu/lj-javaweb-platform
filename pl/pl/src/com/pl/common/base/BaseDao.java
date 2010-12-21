@@ -31,6 +31,15 @@ public abstract class BaseDao extends SqlMapClientDaoSupport {
 	public List<?> selectList(String statementName,Object obj) {
 		return this.getSqlMapClientTemplate().queryForList(statementName, obj);
 	}
+	/**
+	 * 查询列表
+	 * @param statementName
+	 * @param obj
+	 * @return
+	 */
+	public List<?> selectList(String statementName,Object obj,int skipResults,int maxResults) {
+		return this.getSqlMapClientTemplate().queryForList(statementName, obj, skipResults, maxResults);
+	}
 
 	public List<?> selectPager(String statementName, Object obj, Pager pager) {
 		List<?> list = getSqlMapClientTemplate().queryForList(statementName, obj,pager.getOffset(), pager.getMaxPageItems());
