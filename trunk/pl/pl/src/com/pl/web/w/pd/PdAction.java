@@ -8,13 +8,14 @@ import com.pl.web.a.product.TpProduct;
 
 public class PdAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
+	private TpProduct tpProduct;
 	private String groupId;
 	private List<TpProduct> reList;
 	private PdService pdService;
 	
-	public String searchByGroup(){
-		reList = pdService.listByGroup(groupId,16);
-		return "group";
+	public String searchById(){
+		tpProduct = pdService.searchById(tpProduct.getProductId());
+		return "searchone";
 	}
 	//
 	public String getGroupId() {
@@ -31,5 +32,11 @@ public class PdAction extends BaseAction {
 	}
 	public void setReList(List<TpProduct> reList) {
 		this.reList = reList;
+	}
+	public TpProduct getTpProduct() {
+		return tpProduct;
+	}
+	public void setTpProduct(TpProduct tpProduct) {
+		this.tpProduct = tpProduct;
 	}
 }
