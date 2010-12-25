@@ -18,7 +18,7 @@
 		<table width="795"  border="0"  cellspacing="0" cellpadding="0">
 			<tr>
 			<td width="3"><img src="${path}/imags/title_bg1.png"/></td>
-			<td width="100" background="${path}/imags/title_bg2.png" nowrap="nowrap" align="center" style="font-size: 15;color: white;"><strong> 每&nbsp周&nbsp热&nbsp销</strong></td>
+			<td width="100" background="${path}/imags/title_bg2.png" nowrap="nowrap" align="center" style="font-size: 15;color: white;" ><strong> 今&nbsp日&nbsp特&nbsp价</strong></td>
 			<td width="4"><img src="${path}/imags/title_bg3.png"/></td>
 			<td background="${path}/imags/title_bg4.png" colspan="10">&nbsp</td>
 			</tr>
@@ -26,8 +26,8 @@
 	</td>
 </tr>
 <%
-	for (int i = 0; i < SysContexts.groupList1.size(); i++) {
-	TpProduct tpProduct = SysContexts.groupList1.get(i);
+	for (int i = 0; i < SysContexts.groupList2.size(); i++) {
+	TpProduct tpProduct = SysContexts.groupList2.get(i);
 	if(i % 5 == 0){
 	%><tr><%
 	}%>
@@ -45,7 +45,7 @@
 				</tr>
 			</table>
 	</td>
-	<%if(i % 5 == 4||i==SysContexts.groupList1.size()){
+	<%if(i % 5 == 4||i==SysContexts.groupList2.size()){
 	%></tr><%
 	}
 }
