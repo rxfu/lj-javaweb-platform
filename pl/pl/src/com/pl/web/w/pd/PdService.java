@@ -13,5 +13,6 @@ import com.pl.web.a.product.TpProduct;
 public interface PdService
 {
 	public List<TpProduct> listByGroup(String groupId,int maxNum);
+	public TpProduct searchById(String productId);
 
 }

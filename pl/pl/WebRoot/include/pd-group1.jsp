@@ -35,12 +35,16 @@
 			<table>
 				<tr>
 					<td height="145" width="145">
-						<img src="${path}/uploads/<%=tpProduct.getImagfileFileName()%>" width="145" height="145">
+						<a href="${path}/w/pd/pd!searchById.action?tpProduct.productId=<%=tpProduct.getProductId()%>" target="_top">
+							<img src="${path}/uploads/<%=tpProduct.getImagfileFileName()%>" width="145" height="145">
+						</a>
 					</td>
 				</tr>
 				<tr>
 					<td valign="top" align="center">
-					<%=tpProduct.getProductName()%>
+					<a href="${path}/w/pd/pd!searchById.action?tpProduct.productId=<%=tpProduct.getProductId()%>" target="_top">
+						<%=tpProduct.getProductName()%>
+					</a>
 					</td>
 				</tr>
 			</table>
