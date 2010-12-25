@@ -17,7 +17,10 @@
 					<td width="200" valign="top"><%@include file="/include/map.jsp"%></td>
 				</tr>
 				<tr>
-					<td width="800" valign="top" colspan="2" align="center"><%@include file="/include/pd-group1.jsp"%></td>
+					<td width="800" valign="top" colspan="2" align="center">
+						<%@include file="/include/pd-group1.jsp"%>
+						<%@include file="/include/pd-group2.jsp"%>
+					</td>
 				</tr>
 			</table>
 		</div>
