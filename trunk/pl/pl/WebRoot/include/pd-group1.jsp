@@ -36,7 +36,7 @@
 				<tr>
 					<td height="145" width="145">
 						<a href="${path}/w/pd/pd!searchById.action?tpProduct.productId=<%=tpProduct.getProductId()%>" target="_top">
-							<img src="${path}/uploads/<%=tpProduct.getImagfileFileName()%>" width="145" height="145">
+							<img src="${path}/uploads/<%=tpProduct.getImagfileFileName()%>" width="145" height="145" border="0">
 						</a>
 					</td>
 				</tr>

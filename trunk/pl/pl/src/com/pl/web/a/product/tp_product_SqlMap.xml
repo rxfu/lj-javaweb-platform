@@ -48,7 +48,7 @@
 		#productName:VARCHAR#,
 		<isNotEmpty prepend="," property="imagfileFileName">
         	imagfile_file_name = #imagfileFileName:VARCHAR#
-      	</isNotEmpty>,
+      	</isNotEmpty>
 		unit = #unit:VARCHAR#,
 		unit_weight = #unitWeight:REAL#,
 		price_cost =
@@ -59,7 +59,8 @@
 		price_market = #priceMarket:REAL#,
 		inventory =
 		#inventory:INTEGER#,
-		brand = #brand:VARCHAR#
+		brand = #brand:VARCHAR#,
+		product_introduction = #productIntroduction:LONGVARCHAR#
 		where product_id =
 		#productId:VARCHAR#
 		</dynamic>
