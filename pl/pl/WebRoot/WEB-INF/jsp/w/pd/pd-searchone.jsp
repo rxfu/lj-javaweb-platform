@@ -4,6 +4,42 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <%@include file="/common/taglibs.jsp"%>
+<script type="text/javascript" src="${path}/js/jquery.cookie.js"/></script>
+<script language="javascript">
+	$(function(){
+		$("input[name='addCookie']").click(function () { 
+			var buyCardArray;
+			if(null == $.cookie('buyCard')){
+				buyCardArray = new Array();
+			}else{
+				buyCardArray = $.cookie('buyCard').split(",");
+			}
+			buyCardArray.push($(this).attr("id"));
+			buyCardArray = unique(buyCardArray);
+			$.cookie('buyCard', buyCardArray);
+			alert("商品已经成功添加到您的购物车中");
+		 }); 
+		$("input[name='showCookie']").click(function () { 
+			alert($.cookie('buyCard'));
+ 		});
+	 });
+
+	function unique(data){   
+	    data = data || [];   
+	        var a = {};   
+	    for (var i=0; i<data.length; i++) {   
+	        var v = data[i];   
+	        if (typeof(a[v]) == 'undefined'){   
+	            a[v] = 1;   
+	        }   
+	    };   
+	    data.length=0;   
+	    for (var i in a){   
+	        data[data.length] = i;   
+	    }   
+	    return data;   
+} 
+</script>
 </head>
 <body>
 <%@include file="/include/top.jsp"%>
@@ -36,7 +72,11 @@
 									<td align="right" height="50" style="font-family:'黑体';font-size: 13">产品编号:</td><td style="color:#000000;font-size: 14">${tpProduct.productId}</td>
 								</tr>
 								<tr>
-									<td align="right" height="50" colspan="2"><img src="${path}/imags/addToCart.jpg" width="150" /></td>
+									<td align="right" height="50" colspan="2">
+									<input type="button" value="add1" name="addCookie" id="${tpProduct.productId}"/>
+									<input type="button" value="show" name="showCookie" />
+									<!-- <img src="${path}/imags/addToCart.jpg" width="150" /> -->
+									</td>
 								</tr>
 							</table>
 						</td>
