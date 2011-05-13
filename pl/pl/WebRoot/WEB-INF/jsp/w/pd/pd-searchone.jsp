@@ -73,8 +73,10 @@
 								</tr>
 								<tr>
 									<td align="right" height="50" colspan="2">
+									<!-- 
 									<input type="button" value="add1" name="addCookie" id="${tpProduct.productId}"/>
 									<input type="button" value="show" name="showCookie" />
+									 -->
 									<!-- <img src="${path}/imags/addToCart.jpg" width="150" /> -->
 									</td>
 								</tr>
@@ -89,7 +91,7 @@
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<tr>
 									<td width="3"><img src="${path}/imags/title_bg1.png"/></td>
-									<td width="100" background="${path}/imags/title_bg2.png" nowrap="nowrap" align="center" style="font-size: 15;color: white;"><strong> 产&nbsp平&nbsp介&nbsp绍</strong></td>
+									<td width="100" background="${path}/imags/title_bg2.png" nowrap="nowrap" align="center" style="font-size: 15;color: white;"><strong> 产&nbsp品&nbsp介&nbsp绍</strong></td>
 									<td width="4"><img src="${path}/imags/title_bg3.png"/></td>
 									<td background="${path}/imags/title_bg4.png" width="683" width="99%">&nbsp</td>
 								</tr>

@@ -42,13 +42,9 @@
   </insert>
 	<update id="update" parameterClass="com.pl.web.a.product.TpProduct">
 		update tp_product
-		<dynamic prepend="set">
+		set
 		product_name_simple = #productNameSimple:VARCHAR#,
-		product_name =
-		#productName:VARCHAR#,
-		<isNotEmpty prepend="," property="imagfileFileName">
-        	imagfile_file_name = #imagfileFileName:VARCHAR#
-      	</isNotEmpty>
+		product_name = #productName:VARCHAR#,
 		unit = #unit:VARCHAR#,
 		unit_weight = #unitWeight:REAL#,
 		price_cost =
@@ -61,9 +57,12 @@
 		#inventory:INTEGER#,
 		brand = #brand:VARCHAR#,
 		product_introduction = #productIntroduction:LONGVARCHAR#
+		<isNotEmpty prepend="," property="imagfileFileName">
+        	imagfile_file_name = #imagfileFileName:VARCHAR#
+      	</isNotEmpty>
 		where product_id =
 		#productId:VARCHAR#
-		</dynamic>
+
   </update>
 	<delete id="deleteById" parameterClass="String">
 		delete from tp_product

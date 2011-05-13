@@ -21,7 +21,7 @@ import com.pl.common.pager.Pager;
 @Result(name = "input", location = "product-preSave.jsp")
 @InterceptorRefs({
 		@InterceptorRef(value = "fileUpload", params = { "allowedTypes",
-				"image/bmp,image/png,image/gif,image/JPEG,image/jpeg,image/JPG,image/jpg",
+				"image/bmp,image/png,image/gif,image/JPEG,image/jpeg,image/JPG,image/jpg,image/x-png,image/pjpeg",
 				"maximumSize", "20971520" }),
 		@InterceptorRef(value = "defaultStack")
 		})

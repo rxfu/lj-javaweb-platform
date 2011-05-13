@@ -8,7 +8,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <c:set var="ajaxInvoke" scope="request">ajaxPaginationInvoke</c:set>
 <c:set var="anonymousUser" value="anonymousUser"/>
-<c:set var="sysName" value="x网"/>
+<c:set var="sysName" value="地摊在线"/>
 
 <ss:authentication property="name" scope="request" var="username"/>
 
