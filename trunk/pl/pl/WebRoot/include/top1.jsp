@@ -27,8 +27,9 @@
 						<img src="${path}/imags/nav_bg1.gif">
 					</td>
 					<td class="top_table" valign="middle" align="right">
-						<input name="abc" style="border-color: white; border-bottom-color: white; height: 27; width: 200; font-size: 20" />
+						<!-- <input name="abc" style="border-color: white; border-bottom-color: white; height: 27; width: 200; font-size: 20" />
 						<button style="height: 28;width: 70;font-size:18">搜 索</button>
+						 -->
 						<div style="height: 3">
 						</div>
 					</td>

@@ -24,13 +24,15 @@
 	</tx:advice>
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		
+		<property name="url" value="jdbc:mysql://61.147.68.114/pldb?characterEncoding=utf-8" />
+		<property name="username" value="pldb" />
+		<property name="password" value="1230xqc" />
+		 <!-- 
 		<property name="url" value="jdbc:mysql://127.0.0.1/pl?characterEncoding=utf-8" />
-		<!-- 
-		<property name="useUnicode" value="true"/>
-		<property name="characterEncoding" value="utf-8"/>
-		 -->
 		<property name="username" value="root" />
 		<property name="password" value="root" />
+		-->
 	</bean>
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

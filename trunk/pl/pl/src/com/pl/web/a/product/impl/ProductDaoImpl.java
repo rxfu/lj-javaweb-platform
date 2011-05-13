@@ -22,6 +22,7 @@ public class ProductDaoImpl extends BaseDao implements ProductDao {
 	}
 
 	public int update(TpProduct tpProduct) throws SQLException {
+		tpProduct.setImagfile(null);
 		return super.update("Product.update",tpProduct);
 	}
 
