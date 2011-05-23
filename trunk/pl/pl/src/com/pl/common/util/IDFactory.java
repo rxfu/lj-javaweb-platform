@@ -10,7 +10,7 @@ public class IDFactory {
 	private static String iDtemp = "";
 
 	private static final SimpleDateFormat formatter = new SimpleDateFormat(
-			"yyMMddHHmmssSSS");
+			"yyMMddHHmmss");
 
 	/**
 	 * 获取ID

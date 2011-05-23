@@ -66,7 +66,7 @@
 									<td width="100" align="right" height="50" style="font-family:'黑体';font-size: 13">建议零售价:</td><td style="color:#990000;font-size: 15">${tpProduct.priceSellP}</td>
 								</tr>
 								<tr>
-									<td align="right" height="50" style="font-family:'黑体';font-size: 13">XX价:</td><td style="color:#990000;font-size: 15">${tpProduct.priceSellE}</td>
+									<td align="right" height="50" style="font-family:'黑体';font-size: 13">添加批发价:</td><td style="color:#990000;font-size: 15">${tpProduct.priceSellE}</td>
 								</tr>
 								<tr>
 									<td align="right" height="50" style="font-family:'黑体';font-size: 13">产品编号:</td><td style="color:#000000;font-size: 14">${tpProduct.productId}</td>
