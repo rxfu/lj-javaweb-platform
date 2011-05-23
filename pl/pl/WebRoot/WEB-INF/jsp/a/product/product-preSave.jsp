@@ -29,26 +29,31 @@
 				<td>封面图片</td>
 				<td><s:file name="tpProduct.imagfile"/></td>
 			</tr>
+			<!-- 
 			<tr>
 				<td>单位</td>
 				<td><s:textfield name="tpProduct.unit"/></td>
 			</tr>
+			 
 			<tr>
 				<td>单位重量</td>
 				<td><s:textfield name="tpProduct.unitWeight"/></td>
 			</tr>
+			
 			<tr>
 				<td>成本价(元)</td>
 				<td><s:textfield name="tpProduct.priceCost"/></td>
 			</tr>
+			-->
 			<tr>
-				<td>人个售价(元)</td>
+				<td>建议零售价(元)</td>
 				<td><s:textfield name="tpProduct.priceSellP"/></td>
 			</tr>
 			<tr>
-				<td>企业售价(元)</td>
+				<td>天天批发价(元)</td>
 				<td><s:textfield name="tpProduct.priceSellE"/></td>
 			</tr>
+			<!-- 
 			<tr>
 				<td>场市价(元)</td>
 				<td><s:textfield name="tpProduct.priceMarket"/></td>
@@ -61,9 +66,10 @@
 				<td>牌品</td>
 				<td><s:textfield name="tpProduct.brand"/></td>
 			</tr>
+			 -->
 			<tr>
 				<td>介绍</td>
-				<td><s:textarea name="tpProduct.productIntroduction" cssClass="ckeditor" rows="20" cols="2"/></td>
+				<td><s:textarea name="tpProduct.productIntroduction" cssClass="ckeditor" rows="200" cols="6"/></td>
 			</tr>
 			<tr>
 				<td colspan="2">
