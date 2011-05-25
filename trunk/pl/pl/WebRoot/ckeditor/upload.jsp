@@ -32,7 +32,7 @@ if(ServletFileUpload.isMultipartContent(request)){
             String fileName = item.getName();
             fileName = "file" + System.currentTimeMillis() + fileName.substring(fileName.lastIndexOf("."));
             //定义文件路径，根据你的文件夹结构，可能需要做修改
-            String clientPath = "ckeditor/uploader/upload/" + type + fileName;
+            String clientPath = "ckeditor//uploader//upload//" + type + fileName;
   
             //保存文件到服务器上
             File file = new File(request.getSession().getServletContext().getRealPath(clientPath));
