@@ -7,20 +7,20 @@ CKEDITOR.editorConfig = function( config )
 {
 config.language = 'zh-cn';
 //本地使用
-config.filebrowserBrowseUrl = '/../../../../../../pl/ckeditor/browse.jsp';
-config.filebrowserImageBrowseUrl = '/../../../../../../pl/ckeditor/browse.jsp?type=Images';
-config.filebrowserFlashBrowseUrl = '/../../../../../../pl/ckeditor/browse.jsp?type=Flashs';
-config.filebrowserUploadUrl = '/../../../../../../pl/ckeditor/upload.jsp';
-config.filebrowserImageUploadUrl = '/../../../../../../pl/ckeditor/upload.jsp?type=Images';
-config.filebrowserFlashUploadUrl = '/../../../../../../pl/ckeditor/upload.jsp?type=Flashs';
+//config.filebrowserBrowseUrl = '/../../../../../../pl/ckeditor/uploader/browse.jsp';
+//config.filebrowserImageBrowseUrl = '/../../../../../../pl/ckeditor/uploader/browse.jsp?type=Images';
+//config.filebrowserFlashBrowseUrl = '/../../../../../../pl/ckeditor/uploader/browse.jsp?type=Flashs';
+//config.filebrowserUploadUrl = '/../../../../../../pl/ckeditor/uploader/upload.jsp';
+//config.filebrowserImageUploadUrl = '/../../../../../../pl/ckeditor/uploader/upload.jsp?type=Images';
+//config.filebrowserFlashUploadUrl = '/../../../../../../pl/ckeditor/uploader/upload.jsp?type=Flashs';
 
 //发布到服务器时候使用
-//config.filebrowserBrowseUrl = '/../../../../../../ckeditor/browse.jsp';
-//config.filebrowserImageBrowseUrl = '/../../../../../../ckeditor/browse.jsp?type=Images';
-//config.filebrowserFlashBrowseUrl = '/../../../../../../ckeditor/browse.jsp?type=Flashs';
-//config.filebrowserUploadUrl = '/../../../../../../ckeditor/upload.jsp';
-//config.filebrowserImageUploadUrl = '/../../../../../../ckeditor/upload.jsp?type=Images';
-//config.filebrowserFlashUploadUrl = '/../../../../../../ckeditor/upload.jsp?type=Flashs';
+config.filebrowserBrowseUrl = '/../../../../../../ckeditor/uploader/browse.jsp';
+config.filebrowserImageBrowseUrl = '/../../../../../../ckeditor/uploader/browse.jsp?type=Images';
+config.filebrowserFlashBrowseUrl = '/../../../../../../ckeditor/uploader/browse.jsp?type=Flashs';
+config.filebrowserUploadUrl = '/../../../../../../ckeditor/uploader/upload.jsp';
+config.filebrowserImageUploadUrl = '/../../../../../../ckeditor/uploader/upload.jsp?type=Images';
+config.filebrowserFlashUploadUrl = '/../../../../../../ckeditor/uploader/upload.jsp?type=Flashs';
 
 config.filebrowserWindowWidth = '640';
 config.filebrowserWindowHeight = '480';
