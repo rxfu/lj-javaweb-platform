@@ -115,7 +115,7 @@ padding-left:10px;
 background-image:url(${path}/imags/my_cat_sub_menu_dot.gif);
 background-repeat:no-repeat;
 background-position:0px 8px;
-float:left;
+/*float:left;*/
 width:75px;
 height:26px;
 overflow:hidden;
@@ -150,7 +150,7 @@ function showCookie(){
 			<ul>
 			<%for(Pdtype pdtypeTemp2:pdtypeTemp1.getChildrens()){%>
 				<li>
-				<a href="#"><%=pdtypeTemp2.getPdtypeName2() %></a>
+				<a href="${path}/w/pd/pd!listByGroup.action?pdType.seq=<%=pdtypeTemp2.getSeq() %>"><%=pdtypeTemp2.getPdtypeName2() %></a>
 				</li>
 			<%}%>
 			</ul>
