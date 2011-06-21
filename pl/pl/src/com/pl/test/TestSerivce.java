@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.pl.common.base.BaseTest;
-import com.pl.web.w.pdtype.Pdtype;
-import com.pl.web.w.pdtype.PdtypeService;
+import com.pl.service.PdtypeService;
+import com.pl.tdo.PdtypeBean;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 public class TestSerivce extends BaseTest {
@@ -20,11 +20,11 @@ public class TestSerivce extends BaseTest {
 
 	@Test
 	public void getPdtype() throws Throwable {
-		List<Pdtype> list= pdtypeService.getCurrentAllPdtype();
+		List<PdtypeBean> list= pdtypeService.getCurrentAllPdtype();
 		if(pdtypeService.getCurrentAllPdtype().size()>0){
 			assertTrue(false);
 		}
-		for (Pdtype pdtype : list) {
+		for (PdtypeBean pdtype : list) {
 			System.out.println(pdtype.getPdtypeName1());
 		}
 	}

@@ -6,6 +6,8 @@ import org.apache.struts2.convention.annotation.Result;
 
 import com.pl.common.base.BaseAction;
 import com.pl.exception.PlException;
+import com.pl.service.RegService;
+import com.pl.tdo.TsUserBean;
 
 /**
  * 用户注册
@@ -19,7 +21,7 @@ public class RegAction extends BaseAction
 {
 	private static final long serialVersionUID = 1L;
 	private static final  Log log = LogFactory.getLog(RegAction.class);
-	private TsUser tsUser;
+	private TsUserBean tsUser;
 	private RegService regService;
 	
 	public String preLogin(){
@@ -37,10 +39,10 @@ public class RegAction extends BaseAction
 		return "g-index";
 	}
 	///////////////////////////////////////////////////////
-	public TsUser getTsUser() {
+	public TsUserBean getTsUser() {
 		return tsUser;
 	}
-	public void setTsUser(TsUser tsUser) {
+	public void setTsUser(TsUserBean tsUser) {
 		this.tsUser = tsUser;
 	}
 	public RegService getRegService() {

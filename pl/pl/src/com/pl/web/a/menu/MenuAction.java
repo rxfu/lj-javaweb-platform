@@ -1,8 +1,8 @@
 package com.pl.web.a.menu;
 
 import com.pl.common.base.BaseAction;
+import com.pl.service.PdService;
 import com.pl.sys.SysContexts;
-import com.pl.web.w.pd.PdService;
 
 /**
  * 用户注册
