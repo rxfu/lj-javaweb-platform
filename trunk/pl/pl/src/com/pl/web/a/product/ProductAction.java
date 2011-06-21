@@ -11,6 +11,8 @@ import org.apache.struts2.convention.annotation.Result;
 
 import com.pl.common.base.BaseAction;
 import com.pl.common.pager.Pager;
+import com.pl.service.ProductService;
+import com.pl.tdo.TpProductBean;
 
 /**
  * 用户注册
@@ -30,7 +32,7 @@ public class ProductAction extends BaseAction {
 	private static final Log log = LogFactory.getLog(ProductAction.class);
 	private ProductService productService;
 	private Pager pager;
-	private TpProduct tpProduct;
+	private TpProductBean tpProduct;
 
 	@Override
 	public String preSave() {
@@ -69,7 +71,7 @@ public class ProductAction extends BaseAction {
 			pager = new Pager();
 		}
 		if (!isFirst()) {
-			List<TpProduct> reList = productService.list(tpProduct, pager);
+			List<TpProductBean> reList = productService.list(tpProduct, pager);
 			setRequestVal("reList", reList);
 		}
 		return super.list();
@@ -95,11 +97,11 @@ public class ProductAction extends BaseAction {
 		this.productService = productService;
 	}
 
-	public TpProduct getTpProduct() {
+	public TpProductBean getTpProduct() {
 		return tpProduct;
 	}
 
-	public void setTpProduct(TpProduct tpProduct) {
+	public void setTpProduct(TpProductBean tpProduct) {
 		this.tpProduct = tpProduct;
 	}
 

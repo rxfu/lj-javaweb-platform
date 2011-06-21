@@ -3,17 +3,18 @@ package com.pl.web.w.pd;
 import java.util.List;
 
 import com.pl.common.base.BaseAction;
-import com.pl.web.a.product.TpProduct;
-import com.pl.web.w.pdtype.Pdtype;
+import com.pl.service.PdService;
+import com.pl.tdo.PdtypeBean;
+import com.pl.tdo.TpProductBean;
 
 
 public class PdAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
-	private TpProduct tpProduct;
+	private TpProductBean tpProduct;
 	private String groupId;
-	private List<TpProduct> reList;
+	private List<TpProductBean> reList;
 	private PdService pdService;
-	private Pdtype pdType;
+	private PdtypeBean pdType;
 	
 	public String searchById(){
 		tpProduct = pdService.searchById(tpProduct.getProductId());
@@ -33,16 +34,16 @@ public class PdAction extends BaseAction {
 	public void setPdService(PdService pdService) {
 		this.pdService = pdService;
 	}
-	public List<TpProduct> getReList() {
+	public List<TpProductBean> getReList() {
 		return reList;
 	}
-	public void setReList(List<TpProduct> reList) {
+	public void setReList(List<TpProductBean> reList) {
 		this.reList = reList;
 	}
-	public TpProduct getTpProduct() {
+	public TpProductBean getTpProduct() {
 		return tpProduct;
 	}
-	public void setTpProduct(TpProduct tpProduct) {
+	public void setTpProduct(TpProductBean tpProduct) {
 		this.tpProduct = tpProduct;
 	}
 }

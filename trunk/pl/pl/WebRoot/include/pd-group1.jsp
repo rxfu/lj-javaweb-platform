@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@page import="com.pl.sys.SysContexts" %>
-<%@page import="com.pl.web.a.product.TpProduct" %>
+<%@page import="com.pl.tdo.TpProductBean" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -27,9 +27,9 @@
 </tr>
 <%
 	for (int i = 0; i < SysContexts.groupList1.size(); i++) {
-	TpProduct tpProduct = SysContexts.groupList1.get(i);
+	TpProductBean tpProduct = SysContexts.groupList1.get(i);
 	if(i % 5 == 0){
-	%><tr><%
+%><tr><%
 	}%>
 	<td valign="top" class="xxtd">
 			<table>

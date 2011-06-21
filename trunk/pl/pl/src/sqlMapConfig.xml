@@ -20,10 +20,10 @@
              
     <!-- 使用spring之后，数据源的配置移植到了spring上，所以iBATIS本身的配置可以取消 -->
 
-    <sqlMap resource="com/pl/web/sys/security/user/SecurityUser_SqlMap.xml"/>
-    <sqlMap resource="com/pl/web/w/reg/Reg_SqlMap.xml"/>
-    <sqlMap resource="com/pl/web/a/product/tp_product_SqlMap.xml"/>
-    <sqlMap resource="com/pl/web/w/pdtype/pdtype_SqlMap.xml"/>
-    <sqlMap resource="com/pl/web/w/pd/pd_SqlMap.xml"/>
+    <sqlMap resource="com/pl/dao/SecurityUser_SqlMap.xml"/>
+    <sqlMap resource="com/pl/dao/Reg_SqlMap.xml"/>
+    <sqlMap resource="com/pl/dao/tp_product_SqlMap.xml"/>
+    <sqlMap resource="com/pl/dao/pdtype_SqlMap.xml"/>
+    <sqlMap resource="com/pl/dao/pd_SqlMap.xml"/>
     
 </sqlMapConfig>

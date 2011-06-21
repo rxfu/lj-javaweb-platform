@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@page import="com.pl.sys.SysContexts" %>
-<%@page import="com.pl.web.w.pdtype.Pdtype" %>
+<%@page import="com.pl.tdo.PdtypeBean" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -141,14 +141,18 @@ function showCookie(){
 <div class="my_left_category">
 	<h1 align="center">所有商品类型 </h1>
 	<div class="my_left_cat_list">
-		<%for(Pdtype pdtypeTemp1:SysContexts.currentAllPdtype){%>
+		<%
+			for(PdtypeBean pdtypeTemp1:SysContexts.currentAllPdtype){
+		%>
 		<div class="h2_cat" onmouseover="this.className='h2_cat active_cat'" onmouseout="this.className='h2_cat'">
-			<h3><a href="#" style="font-size: 14"><%=pdtypeTemp1.getPdtypeName1() %></a></h3>
+			<h3><a href="#" style="font-size: 14"><%=pdtypeTemp1.getPdtypeName1()%></a></h3>
 			<div class="h3_cat">
 			<div class="shadow">
 			<div class="shadow_border">
 			<ul>
-			<%for(Pdtype pdtypeTemp2:pdtypeTemp1.getChildrens()){%>
+			<%
+				for(PdtypeBean pdtypeTemp2:pdtypeTemp1.getChildrens()){
+			%>
 				<li>
 				<a href="${path}/w/pd/pd!listByGroup.action?pdType.seq=<%=pdtypeTemp2.getSeq() %>"><%=pdtypeTemp2.getPdtypeName2() %></a>
 				</li>
