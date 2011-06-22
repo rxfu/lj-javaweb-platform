@@ -33,7 +33,10 @@ public class ProductDaoImpl extends BaseDao implements ProductDao {
 	public void deleteById(String productId) throws SQLException {
 		super.deleteById("Product.deleteById",productId);
 	}
-
+	@SuppressWarnings("unchecked")
+	public List<TpProductBean> selectByGroupId(String groupId,int maxNum) {
+		return (List<TpProductBean>) super.selectList("Product.selectByGroup", groupId,0,maxNum);
+	}
 	
 	
 

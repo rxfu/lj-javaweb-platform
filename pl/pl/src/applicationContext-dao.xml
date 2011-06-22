@@ -9,5 +9,4 @@
 	<bean id="productDao" class="com.pl.dao.impl.ProductDaoImpl"/>
 	<bean id="regDao" class="com.pl.dao.impl.RegDaoImpl"/>
 	<bean id="pdtypeDao" class="com.pl.dao.impl.PdtypeDaoImpl"/>
-	<bean id="pdDao" class="com.pl.dao.impl.PdDaoImpl"/>
 </beans>

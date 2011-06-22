@@ -13,6 +13,4 @@ import com.pl.tdo.TpProductBean;
 public interface PdService
 {
 	public List<TpProductBean> listByGroup(String groupId,int maxNum);
-	public TpProductBean searchById(String productId);
-
 }

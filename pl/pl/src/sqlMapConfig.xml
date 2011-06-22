@@ -24,6 +24,5 @@
     <sqlMap resource="com/pl/dao/Reg_SqlMap.xml"/>
     <sqlMap resource="com/pl/dao/tp_product_SqlMap.xml"/>
     <sqlMap resource="com/pl/dao/pdtype_SqlMap.xml"/>
-    <sqlMap resource="com/pl/dao/pd_SqlMap.xml"/>
     
 </sqlMapConfig>
