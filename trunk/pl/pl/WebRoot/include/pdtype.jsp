@@ -154,7 +154,7 @@ function showCookie(){
 				for(PdtypeBean pdtypeTemp2:pdtypeTemp1.getChildrens()){
 			%>
 				<li>
-				<a href="${path}/w/pd/pd!listByGroup.action?pdType.seq=<%=pdtypeTemp2.getSeq() %>"><%=pdtypeTemp2.getPdtypeName2() %></a>
+				<a href="${path}/w/pd/pd!listByGroup.action?pdType.seq=<%=pdtypeTemp2.getSeq() %>" target="_top"><%=pdtypeTemp2.getPdtypeName2() %></a>
 				</li>
 			<%}%>
 			</ul>

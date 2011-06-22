@@ -5,6 +5,7 @@
 <%@ taglib prefix="pg" uri="http://jsptags.com/tags/navigation/pager"%>
 <%@ taglib prefix="aa" uri="/WEB-INF/ajaxanywhere.tld" %>
 <%@ taglib prefix="ss" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <c:set var="ajaxInvoke" scope="request">ajaxPaginationInvoke</c:set>
 <c:set var="anonymousUser" value="anonymousUser"/>
