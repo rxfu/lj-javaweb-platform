@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.pl.common.base.BaseAction;
 import com.pl.service.PdService;
+import com.pl.service.ProductService;
 import com.pl.tdo.PdtypeBean;
 import com.pl.tdo.TpProductBean;
 
@@ -14,10 +15,11 @@ public class PdAction extends BaseAction {
 	private String groupId;
 	private List<TpProductBean> reList;
 	private PdService pdService;
+	private ProductService productService;
 	private PdtypeBean pdType;
 	
 	public String searchById(){
-		tpProduct = pdService.searchById(tpProduct.getProductId());
+		tpProduct = productService.searchById(tpProduct.getProductId());
 		return "searchone";
 	}
 	public String listByGroup(){
@@ -51,5 +53,8 @@ public class PdAction extends BaseAction {
 	}
 	public void setPdType(PdtypeBean pdType) {
 		this.pdType = pdType;
+	}
+	public void setProductService(ProductService productService) {
+		this.productService = productService;
 	}
 }
