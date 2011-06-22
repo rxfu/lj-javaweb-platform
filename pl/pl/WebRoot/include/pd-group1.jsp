@@ -17,10 +17,10 @@
 	<td colspan="10" align="left">
 		<table width="795"  border="0"  cellspacing="0" cellpadding="0">
 			<tr>
-			<td width="3"><img src="${path}/imags/title_bg1.png"/></td>
-			<td width="100" background="${path}/imags/title_bg2.png" nowrap="nowrap" align="center" style="font-size: 15;color: white;"><strong> 每&nbsp周&nbsp热&nbsp销</strong></td>
+			<td width="3">&nbsp;i<img src="${path}/imags/title_bg1.png"/></td>
+			<td width="100" background="${path}/imags/title_bg2.png" nowrap="nowrap" align="center" style="font-size: 15;color: white;"><strong> 每&nbsp;周&nbsp;热&nbsp;销</strong></td>
 			<td width="4"><img src="${path}/imags/title_bg3.png"/></td>
-			<td background="${path}/imags/title_bg4.png" colspan="10">&nbsp</td>
+			<td background="${path}/imags/title_bg4.png" colspan="10">&nbsp;</td>
 			</tr>
 		</table>
 	</td>

@@ -91,9 +91,9 @@
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<tr>
 									<td width="3"><img src="${path}/imags/title_bg1.png"/></td>
-									<td width="100" background="${path}/imags/title_bg2.png" nowrap="nowrap" align="center" style="font-size: 15;color: white;"><strong> 产&nbsp品&nbsp介&nbsp绍</strong></td>
+									<td width="100" background="${path}/imags/title_bg2.png" nowrap="nowrap" align="center" style="font-size: 15;color: white;"><strong> 产&nbsp;品&nbsp;介&nbsp;绍</strong></td>
 									<td width="4"><img src="${path}/imags/title_bg3.png"/></td>
-									<td background="${path}/imags/title_bg4.png" width="683" width="99%">&nbsp</td>
+									<td background="${path}/imags/title_bg4.png" width="683" width="99%">&nbsp;</td>
 								</tr>
 							</table>
 						</td>

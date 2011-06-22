@@ -18,9 +18,9 @@
 		<table width="795"  border="0"  cellspacing="0" cellpadding="0">
 			<tr>
 			<td width="3"><img src="${path}/imags/title_bg1.png"/></td>
-			<td width="100" background="${path}/imags/title_bg2.png" nowrap="nowrap" align="center" style="font-size: 15;color: white;" ><strong> 今&nbsp日&nbsp特&nbsp价</strong></td>
+			<td width="100" background="${path}/imags/title_bg2.png" nowrap="nowrap" align="center" style="font-size: 15;color: white;" ><strong> 今&nbsp;日&nbsp;特&nbsp;价</strong></td>
 			<td width="4"><img src="${path}/imags/title_bg3.png"/></td>
-			<td background="${path}/imags/title_bg4.png" colspan="10">&nbsp</td>
+			<td background="${path}/imags/title_bg4.png" colspan="10">&nbsp;</td>
 			</tr>
 		</table>
 	</td>

@@ -21,8 +21,8 @@ public class PdAction extends BaseAction {
 		return "searchone";
 	}
 	public String listByGroup(){
-		reList = pdService.listByGroup(String.valueOf(pdType.getSeq()), pdType.getChildrens().size());
-		return "listgroup";
+		reList = pdService.listByGroup(String.valueOf(pdType.getSeq()), 10);
+		return "searchgroup";
 	}
 	//
 	public String getGroupId() {
@@ -45,5 +45,11 @@ public class PdAction extends BaseAction {
 	}
 	public void setTpProduct(TpProductBean tpProduct) {
 		this.tpProduct = tpProduct;
+	}
+	public PdtypeBean getPdType() {
+		return pdType;
+	}
+	public void setPdType(PdtypeBean pdType) {
+		this.pdType = pdType;
 	}
 }
