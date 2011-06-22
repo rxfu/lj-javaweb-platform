@@ -42,6 +42,9 @@ public class ProductServiceImpl extends BaseService implements ProductService {
 	public void deleteOne(String productId) throws SQLException {
 		productDao.deleteById(productId);
 	}
+	public TpProductBean searchById(String productId) {
+		return productDao.selectOneById(productId);
+	}
 	// //////////////////////////////////////////////
 
 

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
 <sqlMap namespace="Product">
+	<resultMap id="ProductByGroup" class="com.pl.tdo.TpProductBean">
+		<result column="product_id" property="productId" jdbcType="VARCHAR" />
+		<result column="product_name" property="productName" jdbcType="VARCHAR" />
+		<result column="imagfile_file_name" jdbcType="VARCHAR" property="imagfileFileName" />
+	</resultMap>
 	<resultMap id="Product" class="com.pl.tdo.TpProductBean">
 		<result column="product_id" property="productId" jdbcType="VARCHAR" />
 		<result column="product_name_simple" property="productNameSimple"
@@ -112,4 +117,11 @@
       		</isNotEmpty>
 		</dynamic>
 	</select>
+	<select id="selectByGroup" resultMap="ProductByGroup"
+		parameterClass="String">
+		select tp.product_id,tp.product_name,
+		imagfile_file_name
+		from tp_product tp,tp_pdgroup tpg
+		where tp.product_id = tpg.product_id and tpg.group_id = #groupid:VARCHAR#
+  </select>
 </sqlMap>

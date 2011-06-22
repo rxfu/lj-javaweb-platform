@@ -19,4 +19,5 @@ public interface ProductService
 	public List<TpProductBean> list(TpProductBean tpProduct,Pager pager);
 	public TpProductBean selectOneById(String productId);
 	public void deleteOne(String productId) throws SQLException;
+	public TpProductBean searchById(String productId);
 }

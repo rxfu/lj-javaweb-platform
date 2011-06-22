@@ -4,7 +4,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import com.pl.exception.PlException;
-
+/**
+ * ID 工厂类，根据时间生成ID
+ * @author 熊庆春
+ *
+ */
 public class IDFactory {
 
 	private static String iDtemp = "";
