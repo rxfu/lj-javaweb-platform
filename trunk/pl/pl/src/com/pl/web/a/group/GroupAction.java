@@ -1,11 +1,14 @@
 package com.pl.web.a.group;
 
+import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.convention.annotation.Result;
 
 import com.pl.common.base.BaseAction;
 import com.pl.service.ProductService;
+import com.pl.tdo.TpProductBean;
 
 /**
  * 用户注册
@@ -16,15 +19,13 @@ import com.pl.service.ProductService;
 @Result(name = "input", location = "product-preSave.jsp")
 public class GroupAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
-	private static final Log log = LogFactory.getLog(GroupAction.class);
 	private ProductService productService;
+	private String groupId;
 
 	@Override
 	public String list() {
-//		if (!isFirst()) {
-//			List<TpProductBean> reList = productService.list);
-//			setRequestVal("reList", reList);
-//		}
+		List<TpProductBean> reList = productService.listByGroup(groupId);
+		setRequestVal("reList", reList);
 		return super.list();
 	}
 
@@ -34,6 +35,18 @@ public class GroupAction extends BaseAction {
 
 	public void setProductService(ProductService productService) {
 		this.productService = productService;
+	}
+
+	public String getGroupId() {
+		return groupId;
+	}
+
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+	}
+
+	public ProductService getProductService() {
+		return productService;
 	}
 
 	

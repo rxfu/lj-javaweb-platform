@@ -56,4 +56,10 @@ public interface ProductDao
 	 * @return
 	 */
 	public List<TpProductBean> selectByGroupId(String groupId,int maxNum);
+	/**
+	 * 根据商品组查询商品列表
+	 * @param groupId
+	 * @return
+	 */
+	public List<TpProductBean> selectInGroupId(String groupId);
 }
