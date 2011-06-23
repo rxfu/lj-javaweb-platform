@@ -1,7 +1,7 @@
 package com.pl.web.a.menu;
 
 import com.pl.common.base.BaseAction;
-import com.pl.service.PdService;
+import com.pl.service.ProductService;
 import com.pl.sys.SysContexts;
 
 /**
@@ -13,25 +13,24 @@ import com.pl.sys.SysContexts;
 public class MenuAction extends BaseAction
 {
 	private static final long serialVersionUID = 1L;
-	private PdService pdService;
+	private ProductService productService;
 
 	@Override
 	public String list() {
-		SysContexts.groupList1 = pdService.listByGroup("1", 10);
-		SysContexts.groupList2 = pdService.listByGroup("2", 10);
-		SysContexts.groupList3 = pdService.listByGroup("3", 10);
-		SysContexts.groupList4 = pdService.listByGroup("4", 10);
+		SysContexts.groupList1 = productService.listByGroup("1", 10);
+		SysContexts.groupList2 = productService.listByGroup("2", 10);
+		SysContexts.groupList3 = productService.listByGroup("3", 10);
+		SysContexts.groupList4 = productService.listByGroup("4", 10);
 		return super.list();
 	}
-
-	public PdService getPdService() {
-		return pdService;
+	//get set	
+	public ProductService getProductService() {
+		return productService;
 	}
 
-	public void setPdService(PdService pdService) {
-		this.pdService = pdService;
+	public void setProductService(ProductService productService) {
+		this.productService = productService;
 	}
-	
-	
+
 	
 }

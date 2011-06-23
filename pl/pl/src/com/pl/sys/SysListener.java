@@ -6,8 +6,8 @@ import javax.servlet.ServletContextListener;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.pl.service.PdService;
 import com.pl.service.PdtypeService;
+import com.pl.service.ProductService;
 
 public class SysListener implements ServletContextListener {
 
@@ -22,13 +22,13 @@ public class SysListener implements ServletContextListener {
 		System.out.println("系统初始化开始------------------");
 		WebApplicationContext wac = WebApplicationContextUtils.getWebApplicationContext(se.getServletContext());
 
-		PdtypeService pdtypeService = (PdtypeService)wac.getBean("pdtypeService");
+		PdtypeService pdtypeService = (PdtypeService)wac.getBean("productService");
 		SysContexts.currentAllPdtype = pdtypeService.getCurrentAllPdtype();
-		PdService pdService = (PdService)wac.getBean("pdService");
-		SysContexts.groupList1 = pdService.listByGroup("1", 10);
-		SysContexts.groupList2 = pdService.listByGroup("2", 10);
-		SysContexts.groupList3 = pdService.listByGroup("3", 10);
-		SysContexts.groupList4 = pdService.listByGroup("4", 10);
+		ProductService productService = (ProductService)wac.getBean("productService");
+		SysContexts.groupList1 = productService.listByGroup("1", 10);
+		SysContexts.groupList2 = productService.listByGroup("2", 10);
+		SysContexts.groupList3 = productService.listByGroup("3", 10);
+		SysContexts.groupList4 = productService.listByGroup("4", 10);
 		System.out.println("系统初始化结束------------------");
 	}
 
