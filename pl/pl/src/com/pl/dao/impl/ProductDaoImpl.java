@@ -37,6 +37,10 @@ public class ProductDaoImpl extends BaseDao implements ProductDao {
 	public List<TpProductBean> selectByGroupId(String groupId,int maxNum) {
 		return (List<TpProductBean>) super.selectList("Product.selectByGroup", groupId,0,maxNum);
 	}
+	@SuppressWarnings("unchecked")
+	public List<TpProductBean> selectInGroupId(String groupId) {
+		return (List<TpProductBean>) super.selectList("Product.selectInGroupId", groupId);
+	}
 	
 	
 

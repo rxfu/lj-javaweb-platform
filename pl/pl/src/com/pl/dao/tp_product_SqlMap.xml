@@ -2,6 +2,8 @@
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
 <sqlMap namespace="Product">
 	<resultMap id="ProductByGroup" class="com.pl.tdo.TpProductBean">
+		<result column="seq" property="seq" jdbcType="SMALLINT" />
+		<result column="group_id" property="groupId" jdbcType="SMALLINT" />
 		<result column="product_id" property="productId" jdbcType="VARCHAR" />
 		<result column="product_name" property="productName" jdbcType="VARCHAR" />
 		<result column="imagfile_file_name" jdbcType="VARCHAR" property="imagfileFileName" />
@@ -21,10 +23,8 @@
 		<result column="inventory" property="inventory" jdbcType="INTEGER" />
 		<result column="brand" property="brand" jdbcType="VARCHAR" />
 	</resultMap>
-	<resultMap id="ProductLong" class="com.pl.tdo.TpProductBean"
-		extends="Product">
-		<result column="product_introduction" property="productIntroduction"
-			jdbcType="LONGVARCHAR" />
+	<resultMap id="ProductLong" class="com.pl.tdo.TpProductBean" extends="Product">
+		<result column="product_introduction" property="productIntroduction" jdbcType="LONGVARCHAR" />
 	</resultMap>
 	<insert id="insert" parameterClass="com.pl.tdo.TpProductBean">
 		insert into tp_product
@@ -119,9 +119,17 @@
 	</select>
 	<select id="selectByGroup" resultMap="ProductByGroup"
 		parameterClass="String">
-		select tp.product_id,tp.product_name,
+		select tpg.seq,tpg.group_id,tp.product_id,tp.product_name,
 		imagfile_file_name
 		from tp_product tp,tp_pdgroup tpg
 		where tp.product_id = tpg.product_id and tpg.group_id = #groupid:VARCHAR#
-  </select>
+		order by tpg.seq
+  	</select>
+  	<select id="selectInGroupId" resultMap="ProductByGroup"
+		parameterClass="String">
+		select tpg.seq,tpg.group_id,tp.product_id,tp.product_name,
+		imagfile_file_name
+		from (select * from tp_pdgroup tpg where group_id = #groupid:VARCHAR# ) left join tp_product tp
+		on tp.product_id = tpg.product_id
+  	</select>
 </sqlMap>
