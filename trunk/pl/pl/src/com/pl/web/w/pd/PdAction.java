@@ -3,7 +3,6 @@ package com.pl.web.w.pd;
 import java.util.List;
 
 import com.pl.common.base.BaseAction;
-import com.pl.service.PdService;
 import com.pl.service.ProductService;
 import com.pl.tdo.PdtypeBean;
 import com.pl.tdo.TpProductBean;
@@ -14,7 +13,6 @@ public class PdAction extends BaseAction {
 	private TpProductBean tpProduct;
 	private String groupId;
 	private List<TpProductBean> reList;
-	private PdService pdService;
 	private ProductService productService;
 	private PdtypeBean pdType;
 	
@@ -23,7 +21,7 @@ public class PdAction extends BaseAction {
 		return "searchone";
 	}
 	public String listByGroup(){
-		reList = pdService.listByGroup(String.valueOf(pdType.getSeq()), 10);
+		reList = productService.listByGroup(String.valueOf(pdType.getSeq()), 10);
 		return "searchgroup";
 	}
 	//
@@ -33,9 +31,7 @@ public class PdAction extends BaseAction {
 	public void setGroupId(String groupId) {
 		this.groupId = groupId;
 	}
-	public void setPdService(PdService pdService) {
-		this.pdService = pdService;
-	}
+
 	public List<TpProductBean> getReList() {
 		return reList;
 	}

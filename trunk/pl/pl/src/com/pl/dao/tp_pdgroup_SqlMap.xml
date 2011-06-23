@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="tp_pdgroup" >
+  <resultMap id="tp_pdgroup" class="com.pl.tdo.TpPdgroupBean" >
+    <result column="group_id" property="groupId" jdbcType="SMALLINT" />
+    <result column="product_id" property="productId" jdbcType="VARCHAR" />
+    <result column="seq" property="seq" jdbcType="SMALLINT" />
+  </resultMap>
+  <delete id="deleteByProductId" parameterClass="String" >
+    delete from tp_pdgroup
+    where product_id = #productId:VARCHAR#
+  </delete>
+  <insert id="insert" parameterClass="com.pl.tdo.TpPdgroupBean" >
+    insert into tp_pdgroup (group_id, product_id, seq)
+    values (#groupId:SMALLINT#, #productId:VARCHAR#, #seq:SMALLINT#)
+  </insert>
+  <select id="selectMaxSeqByGroupId" resultClass="Short" parameterClass="Short" >
+    select max(seq) as seq
+    from tp_pdgroup
+    where group_id = #groupId:SMALLINT#
+    </select>
+    <select id="selectGroupIdByProductId" resultClass="Short" parameterClass="String" >
+    select group_id
+    from tp_pdgroup
+    where product_id = #productId:VARCHAR#
+    </select>
+</sqlMap>

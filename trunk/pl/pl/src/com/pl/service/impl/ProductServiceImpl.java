@@ -45,6 +45,10 @@ public class ProductServiceImpl extends BaseService implements ProductService {
 	public TpProductBean searchById(String productId) {
 		return productDao.selectOneById(productId);
 	}
+	public List<TpProductBean> listByGroup(String groupId,int maxNum) {
+		return productDao.selectByGroupId(groupId,maxNum);
+	}
+
 	// //////////////////////////////////////////////
 
 
