@@ -22,7 +22,7 @@ public class SysListener implements ServletContextListener {
 		System.out.println("系统初始化开始------------------");
 		WebApplicationContext wac = WebApplicationContextUtils.getWebApplicationContext(se.getServletContext());
 
-		PdtypeService pdtypeService = (PdtypeService)wac.getBean("productService");
+		PdtypeService pdtypeService = (PdtypeService)wac.getBean("pdtypeService");
 		SysContexts.currentAllPdtype = pdtypeService.getCurrentAllPdtype();
 		ProductService productService = (ProductService)wac.getBean("productService");
 		SysContexts.groupList1 = productService.listByGroup("1", 10);
