@@ -2,8 +2,6 @@ package com.pl.web.a.group;
 
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.convention.annotation.Result;
 
 import com.pl.common.base.BaseAction;
