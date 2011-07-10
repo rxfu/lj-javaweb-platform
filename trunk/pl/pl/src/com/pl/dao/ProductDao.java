@@ -61,5 +61,5 @@ public interface ProductDao
 	 * @param groupId
 	 * @return
 	 */
-	public List<TpProductBean> selectInGroupId(Short groupId,Pager pager);
+	public List<TpProductBean> selectInGroupId(String groupId,Pager pager);
 }

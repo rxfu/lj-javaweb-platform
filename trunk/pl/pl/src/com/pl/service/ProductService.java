@@ -21,5 +21,5 @@ public interface ProductService
 	public void deleteOne(String productId) throws SQLException;
 	public TpProductBean searchById(String productId);
 	public List<TpProductBean> listByGroup(String groupId,int maxNum);
-	public List<TpProductBean> listByGroup(Short groupId,Pager pager);
+	public List<TpProductBean> listByGroup(String groupId,Pager pager);
 }

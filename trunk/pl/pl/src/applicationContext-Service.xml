@@ -9,5 +9,6 @@
 	<bean id="productService" class="com.pl.service.impl.ProductServiceImpl"/>
 	<bean id="regService" class="com.pl.service.impl.RegServiceImpl"/>
 	<bean id="pdtypeService" class="com.pl.service.impl.PdtypeServiceImpl"/>
+	<bean id="groupService" class="com.pl.service.impl.GroupServiceImpl"/>
 	<!-- <bean id="pdService" class="com.pl.service.impl.PdServiceImpl"/> -->
 </beans>

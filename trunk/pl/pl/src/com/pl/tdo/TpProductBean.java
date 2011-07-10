@@ -19,8 +19,9 @@ public class TpProductBean {
     private Integer inventory;
     private String brand;
     private String productIntroduction;
-    private short groupId;
+    private String groupId;
     private short seq;
+    private int num;
 	public String getProductId() {
 		return productId;
 	}
@@ -111,17 +112,23 @@ public class TpProductBean {
 	public void setImagfileContentType(String imagfileContentType) {
 		this.imagfileContentType = imagfileContentType;
 	}
-	public short getGroupId() {
-		return groupId;
-	}
-	public void setGroupId(short groupId) {
-		this.groupId = groupId;
-	}
 	public short getSeq() {
 		return seq;
 	}
 	public void setSeq(short seq) {
 		this.seq = seq;
+	}
+	public String getGroupId() {
+		return groupId;
+	}
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
 	}
 
 }
