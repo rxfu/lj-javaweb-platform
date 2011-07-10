@@ -125,11 +125,18 @@
 		where tp.product_id = tpg.product_id and tpg.group_id = #groupid:VARCHAR#
 		order by tpg.seq
   	</select>
-  	<select id="selectInGroupId" resultMap="ProductByGroup"
-		parameterClass="Short">
-		select tpg.seq,tpg.group_id,tp.product_id,tp.product_name_simple,
-		tp.imagfile_file_name
-		from (select * from tp_pdgroup tpg where group_id = #groupid:VARCHAR# ) tpg left join tp_product tp
+  	<select id="selectInGroupIdCount" resultClass="Integer" parameterClass="String">
+		select count(1)
+		from tp_product tp left join (select * from tp_pdgroup tpg where group_id = #groupid:String# ) tpg
 		on tp.product_id = tpg.product_id
+  	</select>
+  	<select id="selectInGroupId" resultMap="ProductByGroup" parameterClass="String">
+		select 
+		case when tpg.seq is null then 9999 else tpg.seq end as seq,
+		tpg.group_id,tp.product_id,tp.product_name_simple,
+		tp.imagfile_file_name
+		from  tp_product tp left join (select * from tp_pdgroup tpg where group_id = #groupid:String# ) tpg
+		on tp.product_id = tpg.product_id
+		order by seq
   	</select>
 </sqlMap>

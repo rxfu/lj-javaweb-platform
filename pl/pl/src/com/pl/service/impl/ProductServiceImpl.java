@@ -48,7 +48,7 @@ public class ProductServiceImpl extends BaseService implements ProductService {
 	public List<TpProductBean> listByGroup(String groupId,int maxNum) {
 		return productDao.selectByGroupId(groupId,maxNum);
 	}
-	public List<TpProductBean> listByGroup(Short groupId,Pager pager) {
+	public List<TpProductBean> listByGroup(String groupId,Pager pager) {
 		return productDao.selectInGroupId(groupId,pager);
 	}
 
