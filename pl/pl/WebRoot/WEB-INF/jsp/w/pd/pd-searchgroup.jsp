@@ -41,7 +41,7 @@
 										</a>
 										<br/>
 										<a href="${path}/w/pd/pd!searchById.action?tpProduct.productId=${products.productId}" target="_top">
-											<c:out value="${products.productName}"/>
+											<c:out value="${products.productNameSimple}"/>
 										</a>
 								</span>
 						</c:forEach>

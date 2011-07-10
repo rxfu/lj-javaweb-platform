@@ -43,7 +43,7 @@
 				<tr>
 					<td valign="top" align="center">
 					<a href="${path}/w/pd/pd!searchById.action?tpProduct.productId=<%=tpProduct.getProductId()%>" target="_top">
-						<%=tpProduct.getProductName()%>
+						<%=tpProduct.getProductNameSimple()%>
 					</a>
 					</td>
 				</tr>

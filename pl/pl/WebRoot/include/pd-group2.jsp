@@ -40,7 +40,7 @@
 				</tr>
 				<tr>
 					<td valign="top" align="center">
-					<%=tpProduct.getProductName()%>
+					<%=tpProduct.getProductNameSimple()%>
 					</td>
 				</tr>
 			</table>

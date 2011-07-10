@@ -38,8 +38,8 @@ public class ProductDaoImpl extends BaseDao implements ProductDao {
 		return (List<TpProductBean>) super.selectList("Product.selectByGroup", groupId,0,maxNum);
 	}
 	@SuppressWarnings("unchecked")
-	public List<TpProductBean> selectInGroupId(String groupId) {
-		return (List<TpProductBean>) super.selectList("Product.selectInGroupId", groupId);
+	public List<TpProductBean> selectInGroupId(Short groupId,Pager pager) {
+		return (List<TpProductBean>) super.selectPager("Product.selectInGroupId", groupId,pager);
 	}
 	
 	

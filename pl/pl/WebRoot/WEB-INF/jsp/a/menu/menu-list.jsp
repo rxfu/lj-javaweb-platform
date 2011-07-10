@@ -16,7 +16,7 @@
 			</tr>
 			<tr>
 				<td>
-					<a href="${path}/a/product/product!list.action?firstFlag=1"
+					<a href="${path}/a/group/group!list.action?firstFlag=1"
 						target="_blank">产品组管理</a>
 				</td>
 			</tr>
