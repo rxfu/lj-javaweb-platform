@@ -10,7 +10,7 @@ public class Pager {
 	/**
 	 * 页最大记录数
 	 */
-	int maxPageItems = 3;
+	int maxPageItems = 10;
 	/**
 	 * 总记录数， 默认9999
 	 */

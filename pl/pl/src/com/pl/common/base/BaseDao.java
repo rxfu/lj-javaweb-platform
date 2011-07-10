@@ -41,6 +41,13 @@ public abstract class BaseDao extends SqlMapClientDaoSupport {
 		return this.getSqlMapClientTemplate().queryForList(statementName, obj, skipResults, maxResults);
 	}
 
+	/**
+	 * 分页的查询
+	 * @param statementName
+	 * @param obj
+	 * @param pager
+	 * @return
+	 */
 	public List<?> selectPager(String statementName, Object obj, Pager pager) {
 		List<?> list = getSqlMapClientTemplate().queryForList(statementName, obj,pager.getOffset(), pager.getMaxPageItems());
 		//如果获得的结果集和页最大记录数不相同，这表示是最后一页。
