@@ -5,7 +5,7 @@
 		<result column="seq" property="seq" jdbcType="SMALLINT" />
 		<result column="group_id" property="groupId" jdbcType="SMALLINT" />
 		<result column="product_id" property="productId" jdbcType="VARCHAR" />
-		<result column="product_name" property="productName" jdbcType="VARCHAR" />
+		<result column="product_name_simple" property="productNameSimple" jdbcType="VARCHAR" />
 		<result column="imagfile_file_name" jdbcType="VARCHAR" property="imagfileFileName" />
 	</resultMap>
 	<resultMap id="Product" class="com.pl.tdo.TpProductBean">
@@ -119,17 +119,17 @@
 	</select>
 	<select id="selectByGroup" resultMap="ProductByGroup"
 		parameterClass="String">
-		select tpg.seq,tpg.group_id,tp.product_id,tp.product_name,
+		select tpg.seq,tpg.group_id,tp.product_id,tp.product_name_simple,
 		imagfile_file_name
 		from tp_product tp,tp_pdgroup tpg
 		where tp.product_id = tpg.product_id and tpg.group_id = #groupid:VARCHAR#
 		order by tpg.seq
   	</select>
   	<select id="selectInGroupId" resultMap="ProductByGroup"
-		parameterClass="String">
-		select tpg.seq,tpg.group_id,tp.product_id,tp.product_name,
-		imagfile_file_name
-		from (select * from tp_pdgroup tpg where group_id = #groupid:VARCHAR# ) left join tp_product tp
+		parameterClass="Short">
+		select tpg.seq,tpg.group_id,tp.product_id,tp.product_name_simple,
+		tp.imagfile_file_name
+		from (select * from tp_pdgroup tpg where group_id = #groupid:VARCHAR# ) tpg left join tp_product tp
 		on tp.product_id = tpg.product_id
   	</select>
 </sqlMap>

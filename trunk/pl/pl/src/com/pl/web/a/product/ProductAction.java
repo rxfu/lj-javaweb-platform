@@ -15,7 +15,7 @@ import com.pl.service.ProductService;
 import com.pl.tdo.TpProductBean;
 
 /**
- * 用户注册
+ * 产品管理
  * 
  * @author 熊庆春
  * 
