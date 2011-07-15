@@ -22,19 +22,19 @@
 			</tr>
 			<tr>
 				<td>
-					<a href="${path}/a/pdtype1/pdtype1!list.action?firstFlag=1"
+					<a href="${path}/a/pdtype1/pdtype!list.action?firstFlag=1&level=1"
 						target="_blank">一级类别管理</a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<a href="${path}/a/pdtype2/pdtype2!list.action?firstFlag=1"
+					<a href="${path}/a/pdtype2/pdtype!list.action?firstFlag=1&level=2"
 						target="_blank">二级类别管理</a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<a href="${path}/a/pdtype3/pdtype3!list.action?firstFlag=1"
+					<a href="${path}/a/pdtype3/pdtype!list.action?firstFlag=1&level=3"
 						target="_blank">三级类别管理</a>
 				</td>
 			</tr>
