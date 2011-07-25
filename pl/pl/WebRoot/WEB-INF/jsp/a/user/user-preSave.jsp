@@ -22,6 +22,10 @@
 				<td><s:textfield name="tsUser.username"/></td>
 			</tr>
 			<tr>
+				<td>密码</td>
+				<td><s:password name="tsUser.password"/></td>
+			</tr>
+			<tr>
 				<td>Email</td>
 				<td><s:textfield name="tsUser.email"/></td>
 			</tr>

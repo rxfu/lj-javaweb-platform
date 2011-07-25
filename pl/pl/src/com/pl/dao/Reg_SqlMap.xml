@@ -18,4 +18,34 @@
   	select username
     from ts_user where username = #username:VARCHAR#
   </select>
+  <select id="selectPager" resultMap="reg"
+		parameterClass="com.pl.tdo.TsUserBean">
+		select user_id, username, password, email, group_id
+		from ts_user
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="userId">
+				user_id like
+				concat('%',#userId:VARCHAR#,'%')
+      		</isNotEmpty>
+			<isNotEmpty prepend="and" property="username">
+				username
+				like concat('%',#username:VARCHAR#,'%')
+      		</isNotEmpty>
+		</dynamic>
+	</select>
+  <select id="selectPagerCount" resultClass="Integer"
+		parameterClass="com.pl.tdo.TsUserBean">
+		select count(1)
+		from ts_user
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="userId">
+				user_id like
+				concat('%',#userId:VARCHAR#,'%')
+      		</isNotEmpty>
+			<isNotEmpty prepend="and" property="username">
+				username
+				like concat('%',#username:VARCHAR#,'%')
+      		</isNotEmpty>
+		</dynamic>
+	</select>
 </sqlMap>

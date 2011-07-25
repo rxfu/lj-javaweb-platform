@@ -1,5 +1,7 @@
 package com.pl.service.impl;
 
+import java.util.List;
+
 import org.apache.commons.lang.xwork.StringUtils;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.encoding.BasePasswordEncoder;
@@ -7,6 +9,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.pl.common.base.BaseService;
+import com.pl.common.pager.Pager;
 import com.pl.dao.RegDao;
 import com.pl.exception.PlException;
 import com.pl.service.RegService;
@@ -36,6 +39,10 @@ public class RegServiceImpl extends BaseService implements RegService
 		}else{
 			return "existed";
 		}
+	}
+	
+	public List<TsUserBean> list(TsUserBean tsUser, Pager pager) {
+		return regDao.selectPager(tsUser, pager);
 	}
 	/////////////////////////////////////////////////////////////
 	public RegDao getRegDao() {
