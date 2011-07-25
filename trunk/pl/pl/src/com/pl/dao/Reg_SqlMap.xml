@@ -48,4 +48,18 @@
       		</isNotEmpty>
 		</dynamic>
 	</select>
+	<update id="update" parameterClass="com.pl.tdo.TsUserBean">
+		update ts_user
+		set
+		username = #username:VARCHAR#,
+		password = #password:VARCHAR#,
+		email = #email:VARCHAR#,
+		group_id = #groupId:REAL#
+		where user_id =
+		#userId:VARCHAR#
+  </update>
+	<delete id="deleteById" parameterClass="String">
+		delete from ts_user
+		where user_id = #userId:VARCHAR#
+	</delete>
 </sqlMap>
