@@ -1,5 +1,8 @@
 package com.pl.dao;
 
+import java.util.List;
+
+import com.pl.common.pager.Pager;
 import com.pl.exception.PlException;
 import com.pl.tdo.TsUserBean;
 
@@ -19,4 +22,12 @@ public interface RegDao {
 	 * @return
 	 */
 	public String isExisted(String username);
+	
+	/**
+	 * 分页查询用户
+	 * @param tsUser
+	 * @param pager
+	 * @return
+	 */
+	public List<TsUserBean> selectPager(TsUserBean tsUser, Pager pager);
 }
