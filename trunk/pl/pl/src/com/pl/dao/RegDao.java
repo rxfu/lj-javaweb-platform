@@ -1,5 +1,6 @@
 package com.pl.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.pl.common.pager.Pager;
@@ -30,4 +31,19 @@ public interface RegDao {
 	 * @return
 	 */
 	public List<TsUserBean> selectPager(TsUserBean tsUser, Pager pager);
+	
+	/**
+	 * 更新用户
+	 * @param tsUser
+	 * @return
+	 * @throws SQLException
+	 */
+	public int update(TsUserBean tsUser) throws SQLException;
+	
+	/**
+	 * 根据用户ID删除用户
+	 * @param userId
+	 * @throws SQLException
+	 */
+	public void deleteById(String userId) throws SQLException;
 }
