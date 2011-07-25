@@ -1,5 +1,6 @@
 package com.pl.dao.impl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.pl.common.base.BaseDao;
@@ -15,6 +16,16 @@ public class RegDaoImpl extends BaseDao implements RegDao {
 	public List<TsUserBean> selectPager(TsUserBean tsUser, Pager pager) {
 		// TODO Auto-generated method stub
 		return (List<TsUserBean>) super.selectPager("Reg.selectPager", tsUser, pager);
+	}
+
+	public void deleteById(String userId) throws SQLException {
+		// TODO Auto-generated method stub
+		super.deleteById("Reg.deleteById",userId);
+	}
+
+	public int update(TsUserBean tsUser) throws SQLException {
+		// TODO Auto-generated method stub
+		return super.update("Reg.update",tsUser);
 	}
 
 	public TsUserBean insert(TsUserBean tsUser) throws PlException {

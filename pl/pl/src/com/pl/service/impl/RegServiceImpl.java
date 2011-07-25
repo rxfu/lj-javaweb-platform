@@ -1,5 +1,6 @@
 package com.pl.service.impl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.commons.lang.xwork.StringUtils;
@@ -40,9 +41,16 @@ public class RegServiceImpl extends BaseService implements RegService
 			return "existed";
 		}
 	}
-	
 	public List<TsUserBean> list(TsUserBean tsUser, Pager pager) {
 		return regDao.selectPager(tsUser, pager);
+	}
+	public void deleteOne(String userId) throws SQLException {
+		// TODO Auto-generated method stub
+		regDao.deleteById(userId);
+	}
+	public void edit(TsUserBean tsUser) throws Exception {
+		// TODO Auto-generated method stub
+		regDao.update(tsUser);
 	}
 	/////////////////////////////////////////////////////////////
 	public RegDao getRegDao() {
