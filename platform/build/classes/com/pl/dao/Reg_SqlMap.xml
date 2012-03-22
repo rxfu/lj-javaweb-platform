@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="Reg" >
+  <resultMap id="reg" class="com.pl.tdo.TsUserBean" >
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="group_id" property="groupId" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <insert id="insert" parameterClass="com.pl.tdo.TsUserBean" >
+    insert into ts_user (user_id, username, password, email, group_id)
+    values (#userId:VARCHAR#, #username:VARCHAR#, #password:VARCHAR#, #email:VARCHAR#,
+      #groupId:VARCHAR#)
+  </insert>
+  <select id="checkByUsername" parameterClass="String" resultClass="String">
+  	select username
+    from ts_user where username = #username:VARCHAR#
+  </select>
+  <select id="selectPager" resultMap="reg"
+		parameterClass="com.pl.tdo.TsUserBean">
+		select user_id, username, password, email, group_id
+		from ts_user
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="userId">
+				user_id like
+				concat('%',#userId:VARCHAR#,'%')
+      		</isNotEmpty>
+			<isNotEmpty prepend="and" property="username">
+				username
+				like concat('%',#username:VARCHAR#,'%')
+      		</isNotEmpty>
+		</dynamic>
+	</select>
+  <select id="selectPagerCount" resultClass="Integer"
+		parameterClass="com.pl.tdo.TsUserBean">
+		select count(1)
+		from ts_user
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="userId">
+				user_id like
+				concat('%',#userId:VARCHAR#,'%')
+      		</isNotEmpty>
+			<isNotEmpty prepend="and" property="username">
+				username
+				like concat('%',#username:VARCHAR#,'%')
+      		</isNotEmpty>
+		</dynamic>
+	</select>
+	<update id="update" parameterClass="com.pl.tdo.TsUserBean">
+		update ts_user
+		set
+		username = #username:VARCHAR#,
+		password = #password:VARCHAR#,
+		email = #email:VARCHAR#,
+		group_id = #groupId:REAL#
+		where user_id =
+		#userId:VARCHAR#
+  </update>
+	<delete id="deleteById" parameterClass="String">
+		delete from ts_user
+		where user_id = #userId:VARCHAR#
+	</delete>
+</sqlMap>
