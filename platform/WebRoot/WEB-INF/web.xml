@@ -9,6 +9,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath*:/applicationContext*.xml</param-value>
 	</context-param>
+	<!-- 中文乱码过滤器 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -21,6 +22,7 @@
 			<param-value>true</param-value>
 		</init-param>
 	</filter>
+	<!-- spring security 权限过滤器 -->
 	<filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -29,6 +31,7 @@
         <filter-name>AjaxAnywhere</filter-name>
         <filter-class>org.ajaxanywhere.AAFilter</filter-class>
     </filter>
+    <!-- struts2 过滤器 -->
 	<filter>
 		<filter-name>struts2Filter</filter-name>
 		<filter-class>
@@ -58,10 +61,11 @@
    <listener>
     	<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
     </listener>
+    <!-- 系统初始化监听 -->
     <listener>
     	<listener-class>com.pl.sys.SysListener</listener-class>
     </listener>
-
+	<!-- 欢迎页面 -->
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
