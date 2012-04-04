@@ -16,14 +16,21 @@
 		<ss:intercept-url pattern="/imags_up/**" filters="none" />
 		<ss:intercept-url pattern="/uploads/**" filters="none" />
 		<ss:intercept-url pattern="/js/**" filters="none" />
+		<ss:intercept-url pattern="/index1.jsp" filters="none" />
+		<ss:intercept-url pattern="/index.jsp" filters="none" />
+		<ss:intercept-url pattern="/w/reg/reg!preLogin.action" filters="none" />
 		<!-- 所有用户都可以使用 -->
+		<!-- 自定义过滤器 -->
+		<ss:custom-filter ref="plSecurityFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+		<!-- 
 		<ss:intercept-url pattern="/index.jsp" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<ss:intercept-url pattern="/w/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		
 		<ss:intercept-url pattern="/b/**" access="ROLE_ADMIN,ROLE_PERSONAL"/>
-		<ss:intercept-url pattern="/a/**" access="ROLE_ADMIN"/>
+		<ss:intercept-url pattern="/a/**" access="ROLE_1"/>
+		 -->
 
-		<ss:intercept-url pattern="/**" access="IS_AUTHENTICATED_FULLY" />
+		
 
 
 		<ss:form-login login-page="/w/reg/reg!preLogin.action"
@@ -51,7 +58,7 @@
 		ts_role.role_id and ts_user.username = ? " />
 		</ss:authentication-provider> </ss:authentication-manager>
 	-->
-	<ss:authentication-manager>
+	<ss:authentication-manager alias="authenticationManager">
 		<ss:authentication-provider
 			user-service-ref="userDetailsService" >
 			<ss:password-encoder hash="md5">

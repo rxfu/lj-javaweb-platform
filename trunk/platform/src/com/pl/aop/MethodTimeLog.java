@@ -14,7 +14,7 @@ import org.apache.commons.logging.LogFactory;
  * 
  */
 public class MethodTimeLog implements MethodInterceptor {
-	protected final Log log = LogFactory.getLog(MethodTimeLog.class);
+	protected static final Log log = LogFactory.getLog(MethodTimeLog.class);
 
 	/**
 	 * 拦截要执行的目标方法
