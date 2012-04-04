@@ -22,7 +22,4 @@
 
     <sqlMap resource="com/pl/dao/SecurityUser_SqlMap.xml"/>
     <sqlMap resource="com/pl/dao/Reg_SqlMap.xml"/>
-    <sqlMap resource="com/pl/dao/tp_product_SqlMap.xml"/>
-    <sqlMap resource="com/pl/dao/pdtype_SqlMap.xml"/>
-    
 </sqlMapConfig>

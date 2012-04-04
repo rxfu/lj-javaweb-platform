@@ -13,8 +13,6 @@ import org.springframework.security.authentication.InsufficientAuthenticationExc
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
-import com.pl.web.a.pdtype.PdtypeAction;
-
 public class PlAccessDecisionManager implements AccessDecisionManager {
 	
 	private static final Log log = LogFactory.getLog(PlAccessDecisionManager.class);
