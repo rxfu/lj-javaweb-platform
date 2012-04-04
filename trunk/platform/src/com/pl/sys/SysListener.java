@@ -3,14 +3,19 @@ package com.pl.sys;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import com.pl.aop.MethodTimeLog;
 import com.pl.service.PdtypeService;
 import com.pl.service.ProductService;
 
 public class SysListener implements ServletContextListener {
 
+	private static final Log log = LogFactory.getLog(SysListener.class);
+	
 	public void contextDestroyed(ServletContextEvent arg0) {
 
 	}
@@ -19,17 +24,10 @@ public class SysListener implements ServletContextListener {
 		this.initSys(se);
 	}
 	private void initSys(ServletContextEvent se){
-		System.out.println("系统初始化开始------------------");
-		WebApplicationContext wac = WebApplicationContextUtils.getWebApplicationContext(se.getServletContext());
-
-		PdtypeService pdtypeService = (PdtypeService)wac.getBean("pdtypeService");
-		SysContexts.currentAllPdtype = pdtypeService.getCurrentAllPdtype();
-		ProductService productService = (ProductService)wac.getBean("productService");
-		SysContexts.groupList1 = productService.listByGroup("1", 10);
-		SysContexts.groupList2 = productService.listByGroup("2", 10);
-		SysContexts.groupList3 = productService.listByGroup("3", 10);
-		SysContexts.groupList4 = productService.listByGroup("4", 10);
-		System.out.println("系统初始化结束------------------");
+		log.info("系统初始化开始------------------");
+		//通过此处获取spring对象
+//		WebApplicationContext wac = WebApplicationContextUtils.getWebApplicationContext(se.getServletContext());
+		log.info("系统初始化结束------------------");
 	}
 
 }
