@@ -9,27 +9,31 @@
 
 	<aop:config>
 		<!-- 事务管理 -->
-		<aop:advisor id="ibatisAop" advice-ref="txAdvice" pointcut="execution(* com.pl.web..*Service.*(..))" />
+		<aop:advisor id="ibatisAop" advice-ref="txAdvice"
+			pointcut="execution(* com.pl.web..*Service.*(..))" />
 		<!-- 获取方法执行时间 -->
-		<aop:advisor id="serviceMethodTimeLogAop" advice-ref="methodTimeLog" pointcut="execution(* com.pl.web..*Service.*(..))"/>
-		<aop:advisor id="daoMethodTimeLogAop" advice-ref="methodTimeLog" pointcut="execution(* com.pl.web..*Dao.*(..))"/>
+		<aop:advisor id="serviceMethodTimeLogAop" advice-ref="methodTimeLog"
+			pointcut="execution(* com.pl.web..*Service.*(..))" />
+		<aop:advisor id="daoMethodTimeLogAop" advice-ref="methodTimeLog"
+			pointcut="execution(* com.pl.web..*Dao.*(..))" />
 	</aop:config>
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="add*" propagation="REQUIRED" rollback-for="Throwable" />
 			<tx:method name="del*" propagation="REQUIRED" rollback-for="Throwable" />
-			<tx:method name="update*" propagation="REQUIRED" rollback-for="Throwable" />
+			<tx:method name="update*" propagation="REQUIRED"
+				rollback-for="Throwable" />
 			<tx:method name="get*" read-only="true" />
 		</tx:attributes>
 	</tx:advice>
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<!--
-		<property name="url" value="jdbc:mysql://61.191.190.245/pldb?characterEncoding=utf-8" />
-		<property name="username" value="pldb" />
-		<property name="password" value="1230xqc" />
-		-->
-		<property name="url" value="jdbc:mysql://127.0.0.1/pldb?characterEncoding=utf-8" />
+		<!-- <property name="url" value="jdbc:mysql://61.191.190.245/pldb?characterEncoding=utf-8" 
+			/> <property name="username" value="pldb" /> <property name="password" value="1230xqc" 
+			/> -->
+		<property name="url"
+			value="jdbc:mysql://127.0.0.1/pldb?characterEncoding=utf-8" />
 		<property name="username" value="root" />
 		<property name="password" value="123456" />
 	</bean>
@@ -44,7 +48,19 @@
 	<bean id="sqlMapClientTemplate" class="org.springframework.orm.ibatis.SqlMapClientTemplate">
 		<constructor-arg ref="sqlMapClient" />
 	</bean>
-	<bean id="methodTimeLog" class="com.pl.aop.MethodTimeLog"/>    
-	<bean id="securityUserDao" class="com.pl.dao.impl.SecurityUserDaoImpl"/>
-	<bean id="userDetailsService" class="com.pl.service.impl.UserDetailsServiceImpl"/>
+	<bean id="methodTimeLog" class="com.pl.aop.MethodTimeLog" />
+	<bean id="securityUserDao" class="com.pl.dao.impl.SecurityUserDaoImpl" />
+	<bean id="userDetailsService" class="com.pl.service.impl.UserDetailsServiceImpl" />
+
+	<!-- 新增加未验证 -->
+	<bean id="plSecurityFilter" class="com.pl.filter.PlSecurityFilter">
+		<property name="authenticationManager" ref="authenticationManager" />
+		<!-- 一下没有实现 -->
+		<property name="accessDecisionManager" ref="plAccessDecisionManager" />
+		<property name="securityMetadataSource" ref="plSecurityMetadataSource" />
+	</bean>
+	<bean id="plAccessDecisionManager" class="com.pl.service.impl.PlAccessDecisionManager" />
+	<bean id="plSecurityMetadataSource" class="com.pl.service.impl.PlSecurityMetadataSource" />
+	<!-- 新增加未验证 -->
+
 </beans>

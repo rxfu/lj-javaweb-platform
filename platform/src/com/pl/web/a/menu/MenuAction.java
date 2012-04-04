@@ -5,7 +5,7 @@ import com.pl.service.ProductService;
 import com.pl.sys.SysContexts;
 
 /**
- * 用户注册
+ * 菜单管理
  * @author 熊庆春
  *
  */
