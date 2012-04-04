@@ -132,8 +132,7 @@ public abstract class BaseDao extends SqlMapClientDaoSupport {
 	 * @throws SQLException 
 	 */
 	public int update(String statementName,Object obj) throws SQLException {
-		int flag = this.getSqlMapClientTemplate()
-				.update(statementName, obj);
+		int flag = this.getSqlMapClientTemplate().update(statementName, obj);
 		if (1 < flag) {
 			throw new SQLException("未成功更新任何数据");
 		}
