@@ -25,11 +25,11 @@
 		<dynamic prepend="where">
 			<isNotEmpty prepend="and" property="userId">
 				user_id like
-				concat('%',#userId:VARCHAR#,'%')
+				'%'||#userId:VARCHAR#||'%'
       		</isNotEmpty>
 			<isNotEmpty prepend="and" property="username">
 				username
-				like concat('%',#username:VARCHAR#,'%')
+				like '%'||#username:VARCHAR#||'%'
       		</isNotEmpty>
 		</dynamic>
 	</select>
@@ -40,11 +40,11 @@
 		<dynamic prepend="where">
 			<isNotEmpty prepend="and" property="userId">
 				user_id like
-				concat('%',#userId:VARCHAR#,'%')
+				'%'||#userId:VARCHAR#||'%'
       		</isNotEmpty>
 			<isNotEmpty prepend="and" property="username">
 				username
-				like concat('%',#username:VARCHAR#,'%')
+				like '%'||#username:VARCHAR#||'%'
       		</isNotEmpty>
 		</dynamic>
 	</select>
